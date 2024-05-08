@@ -1,0 +1,39 @@
+
+vue create frontend
+cd frontend
+npm run serve
+the applicfation run with 8081
+
+np, install vue-router@4
+
+aller dans le dossier src, component, et cliquer sur le fichier helloworld
+supprimer toutes la div dans la balise template
+le component contient la vue de base
+veillez à ajouter forcéme,t le export default dans la balise script
+
+download template site zeb
+https://demos.creative-tim.com/
+creative tim
+https://medevel.com/os-vue-dashboard-system/
+
+rgba(106,0,138,1)
+
+rgb(40, 78, 174)
+rgb(236, 180, 26)
+rgb(222, 170, 24);
+Mettre à jour la version de php dans wamp server
+
+-Taper wamp addons file
+-cliquer sur la version  de PHP voulu
+-Aller en haut sur la ligne updates pour mettre à jour aussi wamp server pour pouvoir être compatible avec la dernière versipon de PHP. cliquer sur la dernière version de wamp server
+-Installer egalement la version de phpmyadmin souhaité 
+-Redemarrer les ervices au niveau de wamp
+npm install --save --legacy-peer-deps
+
+nvm install 14.18.0
+nvm use 14.18.0
+https://www.flaticon.com/fr/icones
+
+-Couleur global du front-end
+aller dans le fichier background css et changer la couleur verte
+pour le sidebar, c'est sidebar-light ca utilise
