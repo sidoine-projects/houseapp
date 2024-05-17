@@ -15981,7 +15981,7 @@ code {
   background: #ffffff;
 }
 .card-weather .card-body:first-child {
-  background: url("../../images/samples/weather.svg") no-repeat center;
+  /* background: url("@/images/logohire.png") no-repeat center; */
   background-size: cover;
 }
 .card-weather .weather-date-location {
@@ -24069,11 +24069,11 @@ div.tagsinput span.tag a {
 /* === Landing screens === */
 /* Auth */
 .auth .login-half-bg {
-  background: url("../../images/auth/login-bg.jpg");
+  /* background: url("@/assets/images/logohire.png"); */
   background-size: cover;
 }
 .auth .register-half-bg {
-  background: url("../../images/auth/register-bg.jpg");
+  /* background: url("@/assets/images/logohire.png"); */
   background-size: cover;
 }
 .auth.lock-full-bg {

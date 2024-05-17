@@ -17,7 +17,7 @@
 
       <router-link class="navbar-brand brand-logo-mini" to="/">
         <img
-          src="@/assets/images/logopay.jpeg"
+          src="@/assets/images/logohire.png"
           alt="logo"
           style="width: 80%; height: 40%"
         />
@@ -64,7 +64,7 @@
                 </router-link>
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">{{ user.name }} {{ user.prenom }}</p>
+                <p class="mb-1 text-black">{{ user.nom }} {{ user.prenom }}</p>
               </div>
             </span>
           </template>
@@ -72,6 +72,21 @@
             <i class="mdi mdi-account mr-2 text-success"></i> Profile
           </b-dropdown-item> -->
         </b-nav-item-dropdown>
+        <b-nav-item
+          class="nav-logout d-none d-lg-block"
+          @click="showLogoutModal"
+        >
+          <i class="mdi mdi-power" style="font-size: 25px; color: brown"></i>
+        </b-nav-item>
+        <!-- Modal de confirmation de déconnexion -->
+        <b-modal
+          ref="logoutModal"
+          title="Confirmation de déconnexion"
+          @ok="logout"
+          ok-variant="info"
+        >
+          Êtes-vous sûr de vouloir vous déconnecter ?
+        </b-modal>
       </b-navbar-nav>
       <button
         class="navbar-toggler navbar-toggler-right align-self-center"
@@ -85,6 +100,9 @@
 </template>
 
 <script>
+import { LoginService } from "@/_services";
+import { useToast, POSITION } from "vue-toastification";
+
 export default {
   name: "app-header",
   data() {
@@ -100,6 +118,26 @@ export default {
     toggleMobileSidebar: () => {
       document.querySelector("#sidebar").classList.toggle("active");
     },
+    showLogoutModal() {
+      this.$refs.logoutModal.show();
+    },
+    logout() {
+      // Code de déconnexion ici
+      // Par exemple, vous pouvez appeler une fonction de déconnexion de votre service d'authentification
+      LoginService.logout()
+        .then(() => {
+          localStorage.removeItem("token");
+          this.$router.push("/login");
+        })
+        .catch((error) => {
+          // Gérer les erreurs de déconnexion
+          console.error("Erreur lors de la déconnexion :", error);
+        });
+    },
+  },
+
+  mounted() {
+    console.log(this.user)
   },
 };
 </script>

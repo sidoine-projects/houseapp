@@ -18,9 +18,8 @@ https://medevel.com/os-vue-dashboard-system/
 
 rgba(106,0,138,1)
 
-rgb(40, 78, 174)
-rgb(236, 180, 26)
-rgb(222, 170, 24);
+rgb(12, 105, 43)
+
 Mettre à jour la version de php dans wamp server
 
 -Taper wamp addons file
@@ -34,6 +33,3 @@ nvm install 14.18.0
 nvm use 14.18.0
 https://www.flaticon.com/fr/icones
 
--Couleur global du front-end
-aller dans le fichier background css et changer la couleur verte
-pour le sidebar, c'est sidebar-light ca utilise

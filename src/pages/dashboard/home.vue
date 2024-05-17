@@ -16,7 +16,7 @@
 
         <div class="card card-img-holder text-black">
           <img
-            src="@/assets/images/parametrage.png"
+            src="@/assets/images/setting.png"
             style="width: 25%"
             class="mt-4 ml-auto mr-auto"
           />
@@ -177,11 +177,11 @@
       >
         <!-- v-if="permission.includes('Voir_module_paiement_et_facturation')" -->
         <div class="card card-img-holder text-black">
-          <img
+          <!-- <img
             src="@/assets/images/paiements.png"
             style="width: 25%"
             class="mt-4 ml-auto mr-auto"
-          />
+          /> -->
           <div class="card-body">
             <center>
               <h2 class="mb-5" style="font-size: 20px">
@@ -211,11 +211,11 @@
       >
         <!-- v-if="permission.includes('Voir_module_tresorier')" -->
         <div class="card card-img-holder text-black">
-          <img
+          <!-- <img
             src="@/assets/images/treasury.png"
             style="width: 25%"
             class="mt-4 ml-auto mr-auto"
-          />
+          /> -->
           <div class="card-body">
             <center>
               <h2 class="mb-5" style="font-size: 20px">Trésorerie</h2>
@@ -243,11 +243,11 @@
       >
         <!-- v-if="permission.includes('Voir_module_rapport')" -->
         <div class="card card-img-holder text-black">
-          <img
+          <!-- <img
             src="@/assets/images/reports.png"
             style="width: 25%"
             class="mt-4 ml-auto mr-auto"
-          />
+          /> -->
           <div class="card-body">
             <center>
               <h2 class="mb-5" style="font-size: 20px">Rapports</h2>
@@ -274,11 +274,11 @@
         
       >
         <div class="card card-img-holder text-black">
-          <img
+          <!-- <img
             src="@/assets/images/reports.png"
             style="width: 25%"
             class="mt-4 ml-auto mr-auto"
-          />
+          /> -->
           <div class="card-body">
             <center>
               <h2 class="mb-5" style="font-size: 20px">Rapport Général</h2>

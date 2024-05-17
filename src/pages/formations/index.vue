@@ -128,7 +128,7 @@
                         >
                           <i
                             class="mdi mdi-dots-vertical"
-                            style="color: rgb(40, 78, 174); font-size: 20px"
+                            style="color: 'rgb(40, 78, 174); font-size: 20px"
                           >
                           </i>
                         </button>

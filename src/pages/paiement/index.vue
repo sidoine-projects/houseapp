@@ -126,7 +126,7 @@
                 <div class="col-sm-6 text-right">
                   <h4>Facture N° {{ reference }}</h4>
                   <p> <strong>Date : {{ formatDate(date) }}</strong></p>
-                  <p>{{nomCentre}}</p>
+                  <p>Hôpital de Zone de KETOU</p>
                   <p>Tél. 68 90 65 45</p>
                 </div>
               </div>
@@ -323,7 +323,6 @@ export default {
       date: "",
       nom: "",
       prenom: "",
-      nomCentre: "",
       code: "",
       autre: "",
       prix: "",
@@ -431,13 +430,9 @@ export default {
       factureService.getFacture(payementId)
         .then((res) => {
           const factureDetails = res.data.data;
-
-          console.log(factureDetails);
-
           this.factureDetails = factureDetails;
           this.nom = this.factureDetails[0].nom;
           this.prenom = this.factureDetails[0].prenom;
-          this.nomCentre = this.factureDetails[0].nom_centre;
           this.reference = facture.reference;
           this.mode_payement = facture.mode_payement;
           this.montantPaye = facture.total_montant;

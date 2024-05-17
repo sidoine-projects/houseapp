@@ -263,7 +263,7 @@ export default defineComponent({
                       style="padding-top: 20px; padding-bottom: 20px"
                     >
                       <img
-                        src="@/assets/images/logopay.jpeg"
+                        src="@/assets/images/logohire.png"
                         style="max-width: 40%"
                       />
                     </div>

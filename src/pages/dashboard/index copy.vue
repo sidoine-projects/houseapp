@@ -20,7 +20,7 @@
       <div class="col-md-4 stretch-card grid-margin">
         <div class="card bg-gradient-success card-img-holder text-white">
           <div class="card-body">
-            <img src="../../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+            <img src="../../assets/images/logohire.png" class="card-img-absolute" alt="circle-image" />
             <h4 class="font-weight-normal mb-3">Recettes Totale / jour <i
                 class="mdi mdi-diamond mdi-24px float-right"></i>
               <i class="mdi mdi-arrow-up mdi-24px float-right"></i>
@@ -36,7 +36,7 @@
       <div class="col-md-4 stretch-card grid-margin">
         <div class="card bg-gradient-danger card-img-holder text-white">
           <div class="card-body">
-            <img src="../../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+            <img src="../../assets/images/logohire.png" class="card-img-absolute" alt="circle-image" />
             <h4 class="font-weight-normal mb-3">Decaissement / jour <i
                 class="mdi mdi-diamond-outline mdi-24px float-right"></i><i
                 class="mdi mdi-arrow-down mdi-24px float-right"></i>
@@ -51,7 +51,7 @@
       <div class="col-md-4 stretch-card grid-margin">
         <div class="card bg-gradient-info card-img-holder text-white">
           <div class="card-body">
-            <img src="../../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+            <img src="../../assets/images/logohire.png" class="card-img-absolute" alt="circle-image" />
             <h4 class="font-weight-normal mb-3">Total Patient<i
                 class="mdi mdi-account-multiple-plus mdi-24px float-right"></i>
             </h4>

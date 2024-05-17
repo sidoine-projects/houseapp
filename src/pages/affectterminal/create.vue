@@ -49,7 +49,7 @@
                       :value="user.id"
                       :key="user.id"
                     >
-                      {{ user.name }} {{ user.prenom }}
+                      {{ user.name }}
                     </option>
                   </select>
                   <div class="invalid-feedback" v-if="formErrors.user_id">
@@ -120,9 +120,9 @@ export default {
     };
   },
   mounted() {
-    LoginService.getAllCaissiers()
+    LoginService.getAllUsers()
       .then((res) => {
-        this.users = res.data.data.caissiers;
+        this.users = res.data.data;
       })
       .catch((error) => {
         console.log(error);

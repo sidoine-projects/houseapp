@@ -23,9 +23,8 @@
 
   <title>Hiretop </title>
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-
-  <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
-  <script src="https://cdn.kkiapay.me/k.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 </head>
 
 <body class="sidebar-fixed">
@@ -38,9 +37,9 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
+  
 
   <style>
-    
     html,
     body,
     h1,
@@ -52,13 +51,21 @@
       font-family: "Montserrat" !important;
     }
 
+    .custom-textarea {
+      height: auto;
+      min-height: 150px;
+      /* Ajustez cette valeur selon vos besoins */
+    }
+
     h6 {
       font-weight: 600 !important;
       color: rgb(23, 51, 122) !important;
       font-size: 14px !important;
     }
-    a{
-      color:white;
+
+    a,
+    a:hover {
+      color: white;
     }
 
     .btn {
@@ -85,13 +92,16 @@
       /* Réduit la hauteur des champs de saisie de type texte */
       padding: 0.375rem 1.2rem;
     }
+
     .card {
       box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1) !important;
-      border: 1px solid #e3e3e4; /* Ajoute une bordure solide autour*/
+      border: 1px solid #e3e3e4;
+      /* Ajoute une bordure solide autour*/
       border-radius: 5.2px !important;
 
     }
   </style>
+  
 </body>
 
 </html>

@@ -4,6 +4,7 @@ import App from "../App.vue";
 
 import layout from "../layout";
 import layout2 from "../layout-2";
+import layoutEntreprise from "../layoutEntreprise";
 // import layout3 from "../Layout-3";
 import accueil from "../pages/accueil/accueil.vue";
 
@@ -20,33 +21,35 @@ const router = new Router({
       component: layout,
       children: [
         {
-          path: "/dashboard",
+          path: "talent",
           name: "dashboard",
           component: () => import("@/pages/dashboard"),
+          meta: { requiresAuth: true, role: "roletalent" },
+        },
+        {
+          path: "",
+          redirect: "/error-pages/error-404",
         },
       ],
     },
+
     {
-      path: "/basic-ui",
-      component: layout,
+      path: "/dashboard",
+      component: layoutEntreprise,
       children: [
         {
-          path: "buttons",
-          name: "buttons",
-          component: () => import("@/pages/basic-ui/buttons"),
+          path: "entreprise",
+          name: "dashboardEntreprise",
+          component: () => import("@/pages/dashboard/indexEntreprise"),
+          meta: { requiresAuth: true, role: "roleentreprise" },
         },
         {
-          path: "dropdowns",
-          name: "dropdowns",
-          component: () => import("@/pages/basic-ui/dropdowns"),
-        },
-        {
-          path: "typography",
-          name: "typography",
-          component: () => import("@/pages/basic-ui/typography"),
+          path: "",
+          redirect: "/error-pages/error-404",
         },
       ],
     },
+
     {
       path: "/charts",
       component: layout,
@@ -58,17 +61,17 @@ const router = new Router({
         },
       ],
     },
-    {
-      path: "/tables",
-      component: layout,
-      children: [
-        {
-          path: "basic-tables",
-          name: "basic-tables",
-          component: () => import("@/pages/tables/basic-tables"),
-        },
-      ],
-    },
+    // {
+    //   path: "/tables",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "basic-tables",
+    //       name: "basic-tables",
+    //       component: () => import("@/pages/tables/basic-tables"),
+    //     },
+    //   ],
+    // },
     {
       path: "/auth-pages",
       component: {
@@ -77,16 +80,16 @@ const router = new Router({
         },
       },
       children: [
-        {
-          path: "login",
-          name: "login",
-          component: () => import("@/pages/samples/auth-pages/login"),
-        },
-        {
-          path: "register",
-          name: "register",
-          component: () => import("@/pages/samples/auth-pages/register"),
-        },
+        // {
+        //   path: "login",
+        //   name: "login",
+        //   component: () => import("@/pages/samples/auth-pages/login"),
+        // },
+        // {
+        //   path: "register",
+        //   name: "register",
+        //   component: () => import("@/pages/samples/auth-pages/register"),
+        // },
         {
           path: "reset",
           name: "reset",
@@ -125,60 +128,119 @@ const router = new Router({
         },
       ],
     },
+    // {
+    //   path: "/icons",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "mdi-icons",
+    //       name: "mdi-icons",
+    //       component: () => import("@/pages/icons/mdi-icons"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/patients",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "create",
+    //       component: () => import("@/pages/patients/create"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/patients",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "list",
+    //       component: () => import("@/pages/patients/index"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/patients",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "update",
+    //       component: () => import("@/pages/patients/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
+
+    // {
+    //   path: "/priseencharge",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "create",
+    //       component: () => import("@/pages/priseencharge/create"),
+    //     },
+    //   ],
+    // },
+
     {
-      path: "/icons",
-      component: layout,
+      path: "/",
+      component: () => import("@/pages/inscriptions/inscription-home"),
       children: [
         {
-          path: "mdi-icons",
-          name: "mdi-icons",
-          component: () => import("@/pages/icons/mdi-icons"),
-        },
-      ],
-    },
-    {
-      path: "/patients",
-      component: layout,
-      children: [
-        {
-          path: "create",
-          name: "create",
-          component: () => import("@/pages/patients/create"),
-        },
-      ],
-    },
-    {
-      path: "/patients",
-      component: layout,
-      children: [
-        {
-          path: "list",
-          name: "list",
-          component: () => import("@/pages/patients/index"),
-        },
-      ],
-    },
-    {
-      path: "/patients",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "update",
-          component: () => import("@/pages/patients/update"),
-          props: true,
+          path: "register",
+          name: "createRegister",
+          component: () => import("@/pages/inscriptions/inscription-home"),
         },
       ],
     },
 
     {
-      path: "/priseencharge",
-      component: layout,
+      path: "/register",
+      component: () => import("@/pages/inscriptions/inscription-etudiant"),
       children: [
         {
-          path: "create",
-          name: "create",
-          component: () => import("@/pages/priseencharge/create"),
+          path: "talent",
+          name: "createRegisterTalent",
+          component: () => import("@/pages/inscriptions/inscription-etudiant"),
+        },
+      ],
+    },
+
+    {
+      path: "/register",
+      component: () => import("@/pages/inscriptions/inscription-entreprise"),
+      children: [
+        {
+          path: "society",
+          name: "createRegisterSociety",
+          component: () =>
+            import("@/pages/inscriptions/inscription-entreprise"),
+        },
+      ],
+    },
+    {
+      path: "/register",
+      component: () => import("@/pages/inscriptions/verify-code-register"),
+      children: [
+        {
+          path: "verifycode",
+          name: "createVerifyCode",
+          component: () => import("@/pages/inscriptions/verify-code-register"),
+        },
+      ],
+    },
+    {
+      path: "/",
+      component: () => import("@/pages/inscriptions/login"),
+      children: [
+        {
+          path: "login",
+          name: "createLogin",
+          component: () => import("@/pages/inscriptions/login"),
         },
       ],
     },
@@ -194,6 +256,7 @@ const router = new Router({
         },
       ],
     },
+
     {
       path: "/formations",
       component: layout,
@@ -217,29 +280,132 @@ const router = new Router({
         },
       ],
     },
+
     {
-      path: "/priseencharge",
+      path: "/experiences",
+      component: layout,
+      children: [
+        {
+          path: "create",
+          name: "create",
+          component: () => import("@/pages/experiences/create"),
+        },
+      ],
+    },
+    {
+      path: "/experiences",
       component: layout,
       children: [
         {
           path: "list",
           name: "list",
-          component: () => import("@/pages/priseencharge/index"),
+          component: () => import("@/pages/experiences/index"),
         },
       ],
     },
-
     {
-      path: "/",
-      component: layout2,
+      path: "/experiences",
+      component: layout,
       children: [
         {
-          path: "",
-          name: "home",
-          component: () => import("@/pages/dashboard/home"),
+          path: "update/:id(\\d+)",
+          name: "update",
+          component: () => import("@/pages/experiences/update"),
+          props: true,
         },
       ],
     },
+    {
+      path: "/competences",
+      component: layout,
+      children: [
+        {
+          path: "create",
+          name: "create",
+          component: () => import("@/pages/competences/create"),
+        },
+      ],
+    },
+    {
+      path: "/competences",
+      component: layout,
+      children: [
+        {
+          path: "list",
+          name: "list",
+          component: () => import("@/pages/competences/index"),
+        },
+      ],
+    },
+    {
+      path: "/competences",
+      component: layout,
+      children: [
+        {
+          path: "update/:id(\\d+)",
+          name: "update",
+          component: () => import("@/pages/competences/update"),
+          props: true,
+        },
+      ],
+    },
+    {
+      path: "/candidatures",
+      component: layout,
+      children: [
+        {
+          path: "create",
+          name: "create",
+          component: () => import("@/pages/candidatures/create"),
+        },
+      ],
+    },
+    {
+      path: "/candidatures",
+      component: layout,
+      children: [
+        {
+          path: "list",
+          name: "list",
+          component: () => import("@/pages/candidatures/index"),
+        },
+      ],
+    },
+    {
+      path: "/candidatures",
+      component: layout,
+      children: [
+        {
+          path: "update/:id(\\d+)",
+          name: "update",
+          component: () => import("@/pages/candidatures/update"),
+          props: true,
+        },
+      ],
+    },
+    // {
+    //   path: "/priseencharge",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "list",
+    //       component: () => import("@/pages/priseencharge/index"),
+    //     },
+    //   ],
+    // },
+
+    // {
+    //   path: "/",
+    //   component: layout2,
+    //   children: [
+    //     {
+    //       path: "",
+    //       name: "home",
+    //       component: () => import("@/pages/dashboard/home"),
+    //     },
+    //   ],
+    // },
     // {
     //   path: "/accueil",
     //   component: layout3,
@@ -257,36 +423,36 @@ const router = new Router({
       component: accueil,
     },
 
-    {
-      path: "/payement",
-      component: layout,
-      children: [
-        {
-          path: "create",
-          name: "create-payement",
-          component: () => import("@/pages/paiement/create"),
-        },
-      ],
-    },
+    // {
+    //   path: "/payement",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "create-payement",
+    //       component: () => import("@/pages/paiement/create"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/payement",
-      component: layout,
-      children: [
-        {
-          path: "list",
-          name: "list-payement",
-          component: () => import("@/pages/paiement/index"),
-        },
-      ],
-    },
+    // {
+    //   path: "/payement",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "list-payement",
+    //       component: () => import("@/pages/paiement/index"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/facture/details/:id(\\d+)",
-      name: "FactureDetails",
-      component: () => import("@/pages/paiement/details-facture"),
-      props: true,
-    },
+    // {
+    //   path: "/facture/details/:id(\\d+)",
+    //   name: "FactureDetails",
+    //   component: () => import("@/pages/paiement/details-facture"),
+    //   props: true,
+    // },
 
     {
       path: "/eph",
@@ -325,78 +491,78 @@ const router = new Router({
       ],
     },
 
-    {
-      path: "/affectterminal",
-      component: layout,
-      children: [
-        {
-          path: "create",
-          name: "affectterminal-create",
-          component: () => import("@/pages/affectterminal/create"),
-        },
-      ],
-    },
+    // {
+    //   path: "/affectterminal",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "affectterminal-create",
+    //       component: () => import("@/pages/affectterminal/create"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/affectterminal",
-      component: layout,
-      children: [
-        {
-          path: "list",
-          name: "affectterminal-list",
-          component: () => import("@/pages/affectterminal/index"),
-        },
-      ],
-    },
+    // {
+    //   path: "/affectterminal",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "affectterminal-list",
+    //       component: () => import("@/pages/affectterminal/index"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/affectterminal",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "affectterminal-update",
-          component: () => import("@/pages/affectterminal/update"),
-          props: true,
-        },
-      ],
-    },
-    {
-      path: "/terminal",
-      component: layout,
-      children: [
-        {
-          path: "create",
-          name: "terminal-create",
-          component: () => import("@/pages/terminal/create"),
-        },
-      ],
-    },
+    // {
+    //   path: "/affectterminal",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "affectterminal-update",
+    //       component: () => import("@/pages/affectterminal/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/terminal",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "terminal-create",
+    //       component: () => import("@/pages/terminal/create"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/terminal",
-      component: layout,
-      children: [
-        {
-          path: "list",
-          name: "terminal-list",
-          component: () => import("@/pages/terminal/index"),
-        },
-      ],
-    },
+    // {
+    //   path: "/terminal",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "terminal-list",
+    //       component: () => import("@/pages/terminal/index"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/terminal",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "terminal-update",
-          component: () => import("@/pages/terminal/update"),
-          props: true,
-        },
-      ],
-    },
+    // {
+    //   path: "/terminal",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "terminal-update",
+    //       component: () => import("@/pages/terminal/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
     // {
     //   path: "/profile",
     //   component: layout,
@@ -495,72 +661,72 @@ const router = new Router({
         },
       ],
     },
-    {
-      path: "/actes-medicaux",
-      component: layout,
-      children: [
-        {
-          path: "create",
-          name: "actes-create",
-          component: () => import("@/pages/actes-medicaux/create"),
-        },
-      ],
-    },
-    {
-      path: "/actes-medicaux",
-      component: layout,
-      children: [
-        {
-          path: "list",
-          name: "actes-list",
-          component: () => import("@/pages/actes-medicaux/index"),
-        },
-      ],
-    },
-    {
-      path: "/assurance",
-      component: layout,
-      children: [
-        {
-          path: "create",
-          name: "assurance-create",
-          component: () => import("@/pages/assurance/create"),
-        },
-      ],
-    },
-    {
-      path: "/assurance",
-      component: layout,
-      children: [
-        {
-          path: "list",
-          name: "assurance-list",
-          component: () => import("@/pages/assurance/index"),
-        },
-      ],
-    },
-    {
-      path: "/compagnie",
-      component: layout,
-      children: [
-        {
-          path: "create",
-          name: "compagnie-create",
-          component: () => import("@/pages/compagnie/create"),
-        },
-      ],
-    },
-    {
-      path: "/compagnie",
-      component: layout,
-      children: [
-        {
-          path: "list",
-          name: "compagnie-list",
-          component: () => import("@/pages/compagnie/index"),
-        },
-      ],
-    },
+    // {
+    //   path: "/actes-medicaux",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "actes-create",
+    //       component: () => import("@/pages/actes-medicaux/create"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/actes-medicaux",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "actes-list",
+    //       component: () => import("@/pages/actes-medicaux/index"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/assurance",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "assurance-create",
+    //       component: () => import("@/pages/assurance/create"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/assurance",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "assurance-list",
+    //       component: () => import("@/pages/assurance/index"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/compagnie",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "compagnie-create",
+    //       component: () => import("@/pages/compagnie/create"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/compagnie",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "compagnie-list",
+    //       component: () => import("@/pages/compagnie/index"),
+    //     },
+    //   ],
+    // },
 
     {
       path: "/user",
@@ -586,18 +752,18 @@ const router = new Router({
       ],
     },
 
-    {
-      path: "/priseencharge",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "update",
-          component: () => import("@/pages/priseencharge/update"),
-          props: true,
-        },
-      ],
-    },
+    // {
+    //   path: "/priseencharge",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "update",
+    //       component: () => import("@/pages/priseencharge/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
 
     {
       path: "/user",
@@ -671,109 +837,109 @@ const router = new Router({
       ],
     },
 
-    {
-      path: "/tresorerie",
-      component: layout,
-      children: [
-        {
-          path: "encaissement",
-          name: "encaissement-create",
-          component: () => import("@/pages/tresorerie/encaissement/create"),
-        },
-      ],
-    },
-    {
-      path: "/tresorerie",
-      component: layout,
-      children: [
-        {
-          path: "decaissement",
-          name: "decaissement-create",
-          component: () => import("@/pages/tresorerie/decaissement/create"),
-        },
-      ],
-    },
-    {
-      path: "/tresorerie",
-      component: layout,
-      children: [
-        {
-          path: "list-encaissement",
-          name: "list-encaissement",
-          component: () => import("@/pages/tresorerie/encaissement/index"),
-        },
-      ],
-    },
-    {
-      path: "/tresorerie",
-      component: layout,
-      children: [
-        {
-          path: "list-decaissement",
-          name: "list-decaissement",
-          component: () => import("@/pages/tresorerie/decaissement/index"),
-        },
-      ],
-    },
-    {
-      path: "/tresorerie",
-      component: layout,
-      children: [
-        {
-          path: "decaissement/update/:id(\\d+)",
-          name: "tresorerie-update",
-          component: () => import("@/pages/tresorerie/decaissement/update"),
-          props: true,
-        },
-      ],
-    },
-    {
-      path: "/indigence-patient",
-      component: layout,
-      children: [
-        {
-          path: "indigence-patient-create",
-          name: "indigence-patient-create",
-          component: () => import("@/pages/indigence-patient/create"),
-        },
-      ],
-    },
+    // {
+    //   path: "/tresorerie",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "encaissement",
+    //       name: "encaissement-create",
+    //       component: () => import("@/pages/tresorerie/encaissement/create"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/tresorerie",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "decaissement",
+    //       name: "decaissement-create",
+    //       component: () => import("@/pages/tresorerie/decaissement/create"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/tresorerie",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list-encaissement",
+    //       name: "list-encaissement",
+    //       component: () => import("@/pages/tresorerie/encaissement/index"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/tresorerie",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list-decaissement",
+    //       name: "list-decaissement",
+    //       component: () => import("@/pages/tresorerie/decaissement/index"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/tresorerie",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "decaissement/update/:id(\\d+)",
+    //       name: "tresorerie-update",
+    //       component: () => import("@/pages/tresorerie/decaissement/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/indigence-patient",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "indigence-patient-create",
+    //       name: "indigence-patient-create",
+    //       component: () => import("@/pages/indigence-patient/create"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/indigence-patient",
-      component: layout,
-      children: [
-        {
-          path: "list-indigence-patient",
-          name: "list-indigence-patient",
-          component: () => import("@/pages/indigence-patient/index"),
-        },
-      ],
-    },
+    // {
+    //   path: "/indigence-patient",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list-indigence-patient",
+    //       name: "list-indigence-patient",
+    //       component: () => import("@/pages/indigence-patient/index"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/indigence",
-      component: layout,
-      children: [
-        {
-          path: "create",
-          name: "indigence",
-          component: () => import("@/pages/indigence/create"),
-        },
-      ],
-    },
+    // {
+    //   path: "/indigence",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "indigence",
+    //       component: () => import("@/pages/indigence/create"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/indigence",
-      component: layout,
-      children: [
-        {
-          path: "list",
-          name: "list-indigence",
-          component: () => import("@/pages/indigence/index"),
-        },
-      ],
-    },
+    // {
+    //   path: "/indigence",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "list-indigence",
+    //       component: () => import("@/pages/indigence/index"),
+    //     },
+    //   ],
+    // },
 
     {
       path: "/rapport",
@@ -833,44 +999,44 @@ const router = new Router({
       ],
     },
 
-    {
-      path: "/compagnie",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "update",
-          component: () => import("@/pages/compagnie/update"),
-          props: true,
-        },
-      ],
-    },
+    // {
+    //   path: "/compagnie",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "update",
+    //       component: () => import("@/pages/compagnie/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/assurance",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "update",
-          component: () => import("@/pages/assurance/update"),
-          props: true,
-        },
-      ],
-    },
+    // {
+    //   path: "/assurance",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "update",
+    //       component: () => import("@/pages/assurance/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/actes-medicaux",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "update",
-          component: () => import("@/pages/actes-medicaux/update"),
-          props: true,
-        },
-      ],
-    },
+    // {
+    //   path: "/actes-medicaux",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "update",
+    //       component: () => import("@/pages/actes-medicaux/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
 
     {
       path: "/user",
@@ -885,44 +1051,44 @@ const router = new Router({
       ],
     },
 
-    {
-      path: "/indigence",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "update",
-          component: () => import("@/pages/indigence/update"),
-          props: true,
-        },
-      ],
-    },
+    // {
+    //   path: "/indigence",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "update",
+    //       component: () => import("@/pages/indigence/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/indigence-patient",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "update",
-          component: () => import("@/pages/indigence-patient/update"),
-          props: true,
-        },
-      ],
-    },
+    // {
+    //   path: "/indigence-patient",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "update",
+    //       component: () => import("@/pages/indigence-patient/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/tresorerie",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "tresorerie-update",
-          component: () => import("@/pages/tresorerie/encaissement/update"),
-          props: true,
-        },
-      ],
-    },
+    // {
+    //   path: "/tresorerie",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "tresorerie-update",
+    //       component: () => import("@/pages/tresorerie/encaissement/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
 
     {
       path: "*",
@@ -945,15 +1111,33 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const publicPages = [
     "/accueil",
-    "/auth-pages/login",
+    "/register",
+    "/register/talent",
+    "/register/society",
+    "/register/verifycode",
+    "/login",
     "/auth-pages/forget-password",
     "/auth-pages/reset",
   ];
-  const authRequired = !publicPages.includes(to.path);
-  const loggedIn = localStorage.getItem("user");
+  const authRequired = !publicPages.includes(to.path); // to.path est la route demandé
+  const loggedIn = localStorage.getItem("token");
+  const userRole = localStorage.getItem("role"); // Récupérer le rôle de l'utilisateur
 
   if (authRequired && !loggedIn) {
-    next("/auth-pages/login");
+    next("/login");
+  } else if (
+    to.meta.requiresAuth &&
+    to.meta.role &&
+    to.meta.role !== userRole
+  ) {
+    // Rediriger vers le tableau de bord correspondant au rôle de l'utilisateur
+    if (userRole == "roletalent") {
+      next("/dashboard/talent");
+    } else if (userRole == "roleentreprise") {
+      next("/dashboard/entreprise");
+    } else {
+      next("/error-pages/error-404"); // Par défaut, rediriger vers une page d'erreur si le rôle n'est pas reconnu
+    }
   } else {
     next();
   }

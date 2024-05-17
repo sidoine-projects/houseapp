@@ -83,7 +83,7 @@
                         ></i>
                       </b-button>
                       <b-button
-                        @click="supprimer(index)"
+                        @click="supprimer(index)" 
                         size="sm"
                         v-b-tooltip.hover
                         title="Supprimer"

@@ -24,7 +24,7 @@
                 <div class="row">
                   <div class="form-group controls col-md-6">
                     <label for="exampleFormControlSelect1"
-                      >Type de formation</label
+                      >Type de formation<span class="font-weight-bold" style="color:red"> *</span></label
                     >
                     <select
                       :class="{ 'is-invalid': formErrors.errorPays }"
@@ -33,7 +33,7 @@
                       class="form-control mb-3"
                       id="exampleFormControlSelect1"
                     >
-                      <option value="">Sélectionner un formation</option>
+                      <option value="">Sélectionner une formation</option>
                     </select>
                     <div class="invalid-feedback" v-if="formErrors.errorPays">
                       Ce champs est requis
@@ -41,7 +41,7 @@
                   </div>
                   <div class="form-group controls col-md-6">
                     <label for="exampleFormControlSelect1"
-                      >Ecole/institut</label
+                      >Ecole/institut<span class="font-weight-bold" style="color:red"> *</span></label
                     >
                     <select
                       :class="{ 'is-invalid': formErrors.errorPays }"
@@ -62,7 +62,7 @@
                 <div class="row">
                   <div class="form-group controls col-md-4">
                     <label for="exampleFormControlSelect1"
-                      >Niveau d'étude</label
+                      >Niveau d'étude<span class="font-weight-bold" style="color:red"> *</span></label
                     >
                     <select
                       :class="{ 'is-invalid': formErrors.errorPays }"
@@ -79,7 +79,7 @@
                   </div>
                   <div class="form-group controls col-md-4">
                     <label for="exampleFormControlSelect1"
-                      >Intitulé du diplôme</label
+                      >Intitulé du diplôme<span class="font-weight-bold" style="color:red"> *</span></label
                     >
                     <select
                       :class="{ 'is-invalid': formErrors.errorPays }"
@@ -96,7 +96,7 @@
                   </div>
                   <div class="form-group controls col-md-4">
                     <label for="exampleFormControlSelect1"
-                      >Domaine de formation</label
+                      >Domaine de formation<span class="font-weight-bold" style="color:red"> *</span></label
                     >
                     <select
                       :class="{ 'is-invalid': formErrors.errorPays }"
@@ -119,7 +119,7 @@
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="dateDebut"
-                      >Date de début <span style="color: red">*</span></label
+                      >Date de début<span class="font-weight-bold" style="color:red"> *</span></label
                     >
                     <input
                       type="date"
@@ -142,7 +142,7 @@
                   </div>
                   <div class="form-group col-md-6">
                     <label for="dateFin"
-                      >Date de fin <span style="color: red">*</span></label
+                      >Date de fin<span class="font-weight-bold" style="color:red"> *</span></label
                     >
                     <input
                       type="date"

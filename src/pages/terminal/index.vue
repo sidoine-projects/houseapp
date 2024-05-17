@@ -212,6 +212,7 @@ export default {
       table.buttons().container().prependTo("#myTable_wrapper .col-md-6:eq(0)");
     });
   },
+  
   methods: {
     // detail(act) {
     //   this.id = act.id;

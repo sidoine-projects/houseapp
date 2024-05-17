@@ -409,7 +409,7 @@
                     </div>
 
                     <div class="modal-body text-center">
-                      <img src="@/assets/images/img-valider.png" alt="logo" class="w-50" />
+                      <img src="@/assets/images/logohire.png" alt="logo" class="w-50" />
                       <p>Vous avez éffectué avec succés un encaissement !</p>
                     </div>
 
@@ -440,7 +440,7 @@
                           <div class="mx-auto text-center">
                             <img src="@/assets/images/logo-ministere.png" alt="logo"
                               style="margin-left: -70px; width: 65%;" />
-                            <img src="@/assets/images/oms.svg" alt="logo" class="w-50" />
+                            <img src="@/assets/images/logohire.png" alt="logo" class="w-50" />
                           </div>
                         </div>
                         <div class="col-sm-4 text-center mt-auto mb-auto">
@@ -520,7 +520,7 @@
                         </div>
                         <div class="col-sm-6 text-right">
                           <p><strong> Le Chef Caissier </strong></p>
-                          <img src="@/assets/images/signature.png" alt="logo" class="w-25" />
+                          <!-- <img src="@/assets/images/signature.png" alt="logo" class="w-25" /> -->
                           <p><strong> Félicien DAGBOGBO </strong></p>
                         </div>
                       </div>

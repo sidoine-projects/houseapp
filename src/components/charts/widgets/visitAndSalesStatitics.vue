@@ -36,7 +36,6 @@ export default {
       DecaisseService.getdecaissement()
     ])
       .then((results) => {
-        
         const encaissementRes = results[0];
         const decaissementRes = results[1];
 

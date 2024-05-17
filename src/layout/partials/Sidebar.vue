@@ -13,98 +13,10 @@
         </li>
 
         <li class="nav-item" v-on:click="collapseAll">
-          <router-link class="nav-link" to="/dashboard">
+          <router-link class="nav-link" to="/dashboard/talent">
             <span class="menu-title">Tableau de board</span>
             <i class="mdi menu-icon mdi-view-dashboard-outline"> </i>
           </router-link>
-        </li>
-
-        <li class="nav-item">
-          <span class="nav-link" v-b-toggle="'ui-basic'">
-            <span class="menu-title">Paramètrage</span>
-
-            <i class="menu-arrow menu-icon">
-              <img
-                src="@/assets/images/setting.png"
-                alt="patient"
-                style="width: 1rem; height: 1rem"
-              />
-            </i>
-          </span>
-
-          <b-collapse accordion="sidebar-accordion" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item">
-                <!-- v-if="permission.includes('Voir_module_utilisateurs')" -->
-
-                <router-link class="nav-link" to="/user/list"
-                  >Utilisateurs</router-link
-                >
-              </li>
-              <!-- <li class="nav-item">
-
-                <router-link class="nav-link" to="/user/role/list">Rôle Utilisateur</router-link>
-
-              </li> -->
-              <!-- <li class="nav-item">
-
-                <router-link class="nav-link" to="/user/role/list">Rôle Utilisateur</router-link>
-
-              </li> -->
-
-              <li class="nav-item">
-                <router-link class="nav-link" to="/user/role/permissions"
-                  >Droits utilisateurs</router-link
-                >
-              </li>
-
-              <li class="nav-item">
-                <router-link class="nav-link" to="/affectterminal/list"
-                  >AffectTerminal</router-link
-                >
-              </li>
-              <li class="nav-item">
-                <router-link class="nav-link" to="/terminal/list"
-                  >Terminal</router-link
-                >
-              </li>
-              <li class="nav-item">
-                <router-link class="nav-link" to="/ephe/list"
-                  >Type centre</router-link
-                >
-              </li>
-
-              <li class="nav-item">
-                <router-link class="nav-link" to="/eph/list"
-                  >Carte Sanitaire</router-link
-                >
-              </li>
-
-              <!-- <li class="nav-item">
-                <router-link class="nav-link" to="/actes-medicaux/list"
-                  >Actes médicaux</router-link
-                >
-              </li>
-
-              <li class="nav-item">
-                <router-link class="nav-link" to="/indigence/list"
-                  >Indigences</router-link
-                >
-              </li>
-
-              <li class="nav-item">
-                <router-link class="nav-link" to="/compagnie/list"
-                  >Compagnie</router-link
-                >
-              </li>
-
-              <li class="nav-item">
-                <router-link class="nav-link" to="/assurance/list"
-                  >Assurance Compagnie</router-link
-                >
-              </li> -->
-            </ul>
-          </b-collapse>
         </li>
 
         <li class="nav-item">
@@ -126,7 +38,7 @@
 
           <router-link
             class="nav-link"
-            to="/priseencharge/list"
+            to="/experiences/list"
             style="text-decoration: none"
           >
             <span class="menu-title">Expérience</span>
@@ -141,7 +53,7 @@
 
           <router-link
             class="nav-link"
-            to="/priseencharge/list"
+            to="/competences/list"
             style="text-decoration: none"
           >
             <span class="menu-title">Compétences</span>
@@ -154,7 +66,7 @@
         <li class="nav-item">
           <!-- v-if="permission.includes('Voir_module_assurance_patient')" -->
 
-          <router-link class="nav-link" to="#" style="text-decoration: none">
+          <router-link class="nav-link" to="/candidatures/list" style="text-decoration: none">
             <span class="menu-title">Candidatures</span>
 
             <i class="mdi menu-icon mdi-checkbox-multiple-marked-outline"> </i>
@@ -216,7 +128,7 @@
           </router-link>
         </li> -->
 
-        <!-- <li class="nav-item sidebar-actions">
+        <li class="nav-item sidebar-actions">
           <span class="nav-link" v-on:click="logout">
             <button
               class="btn btn-block btn-gradient-danger pt-3 mx-auto text-center"
@@ -228,7 +140,7 @@
               <span style="color: black !important">Déconnexion</span>
             </button>
           </span>
-        </li> -->
+        </li>
       </ul>
     </nav>
   </section>

@@ -4,17 +4,12 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="javascript:void(0);" class="text-dark font-weight-bold"
-              >Tableau de board</a
-            >
+            <a href="javascript:void(0);" class="text-dark font-weight-bold">Tableau de board</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
             Paiement et Facturation
           </li>
-          <li
-            class="breadcrumb-item active text-success font-weight-bold"
-            aria-current="page"
-          >
+          <li class="breadcrumb-item active text-success font-weight-bold" aria-current="page">
             Ajouter
           </li>
         </ol>
@@ -36,21 +31,12 @@
                   <div class="control-group row">
                     <div class="form-group controls col-md-6">
                       <label for="exampleFormControlSelect1">Patient</label>
-                      <select
-                        v-model="selectedPatient"
-                        class="form-control mb-3"
-                        id="exampleFormControlSelect1"
-                        @change="detail"
-                        :class="{ 'is-invalid': formErrors.patient }"
-                      >
+                      <select v-model="selectedPatient" class="form-control mb-3" id="exampleFormControlSelect1"
+                        @change="detail" :class="{ 'is-invalid': formErrors.patient }">
                         <option value="">Sélectionner un patient</option>
                         <!-- Option par défaut avec une valeur vide -->
 
-                        <option
-                          v-for="patient in patients"
-                          :value="patient.id"
-                          :key="patient.id"
-                        >
+                        <option v-for="patient in patients" :value="patient.id" :key="patient.id">
                           {{ patient.nom }} {{ patient.prenom }}
                         </option>
                       </select>
@@ -61,14 +47,8 @@
 
                     <div class="form-group col-md-6">
                       <label for="exampleInputEmail1">Age</label>
-                      <input
-                        readonly
-                        type="text"
-                        class="form-control"
-                        id="exampleInputEmail1"
-                        placeholder="Age"
-                        v-model="patient.age"
-                      />
+                      <input readonly type="text" class="form-control" id="exampleInputEmail1" placeholder="Age"
+                        v-model="patient.age" />
                     </div>
                   </div>
                 </div>
@@ -77,84 +57,48 @@
                   <div class="control-group row">
                     <div class="form-group col-md-6">
                       <label for="exampleInputEmail1">Téléphone</label>
-                      <input
-                        readonly
-                        type="email"
-                        class="form-control"
-                        id="exampleInputEmail1"
-                        placeholder="Numéro de téléphone"
-                        v-model="patient.telephone"
-                      />
+                      <input readonly type="email" class="form-control" id="exampleInputEmail1"
+                        placeholder="Numéro de téléphone" v-model="patient.telephone" />
                     </div>
                     <div class="form-group col-md-6">
                       <label for="exampleInputEmail1">Sexe</label>
-                      <input
-                        readonly
-                        type="email"
-                        class="form-control"
-                        id="exampleInputEmail1"
-                        placeholder="email"
-                        v-model="patient.sexe"
-                      />
+                      <input readonly type="email" class="form-control" id="exampleInputEmail1" placeholder="email"
+                        v-model="patient.sexe" />
                     </div>
                   </div>
                 </div>
                 <!-- <fieldset class="scheduler-border col-md-12" v-if="assurancePourcentage !== null || pourcentageIndigence !== null"> -->
-                <fieldset
-                  class="scheduler-border col-md-12"
-                  v-if="pourcentageIndigence !== null || assurancepatient !== null"
-                >
+                <fieldset class="scheduler-border col-md-12"
+                  v-if="pourcentageIndigence !== null || assurancepatient !== null">
                   <legend class="scheduler-border" style="font-size: medium !important">
                     Prise en charge patient
                   </legend>
                   <div class="row" v-if="assurancePourcentage !== null">
+
                     <div class="form-group p-2 col-md-4">
                       <label for="exampleInputUsername1">Assurance Patient </label>
-                      <input
-                        readonly
-                        type="text"
-                        class="form-control"
-                        id="exampleInputUsername1"
-                        placeholder="Assurance patient"
-                        v-model="assurancepatient"
-                      />
+                      <input readonly type="text" class="form-control" id="exampleInputUsername1"
+                        placeholder="Assurance patient" v-model="assurancepatient" />
                     </div>
 
                     <div class="form-group p-2 col-md-4">
                       <label for="exampleInputUsername1"> Pourcentage Assurance </label>
-                      <input
-                        readonly
-                        type="text"
-                        class="form-control"
-                        id="exampleInputUsername1"
-                        placeholder=" Pourcentage Assurance"
-                        v-model="assurancePourcentage"
-                      />
+                      <input readonly type="text" class="form-control" id="exampleInputUsername1"
+                        placeholder=" Pourcentage Assurance" v-model="assurancePourcentage" />
                     </div>
 
                     <div class="form-group p-2 col-md-4">
                       <label for="exampleInputUsername1"> Numéro Assurance</label>
-                      <input
-                        readonly
-                        type="text"
-                        class="form-control"
-                        id="exampleInputUsername1"
-                        placeholder=" Pourcentage Assurance"
-                        v-model="assuranceNumero"
-                      />
+                      <input readonly type="text" class="form-control" id="exampleInputUsername1"
+                        placeholder=" Pourcentage Assurance" v-model="assuranceNumero" />
                     </div>
+
                   </div>
                   <div class="row" v-if="pourcentageIndigence !== null">
                     <div class="form-group p-2 col-md-12">
                       <label for="exampleInputUsername1">Indigence Patient (En %)</label>
-                      <input
-                        readonly
-                        type="text"
-                        class="form-control"
-                        id="exampleInputUsername1"
-                        placeholder="Pourcentage indigence"
-                        v-model="pourcentageIndigence"
-                      />
+                      <input readonly type="text" class="form-control" id="exampleInputUsername1"
+                        placeholder="Pourcentage indigence" v-model="pourcentageIndigence" />
                     </div>
                   </div>
                 </fieldset>
@@ -171,31 +115,19 @@
                     <div class="form-group col-md-4">
                       <label for="exampleFormControlSelect1">Actes médicaux</label>
 
-                      <select
-                        class="form-control"
-                        id="exampleFormControlSelect1"
-                        v-model="form.acte"
-                        @change="fetchActeMedicalDetails(index)"
-                        :class="{
+                      <select class="form-control" id="exampleFormControlSelect1" v-model="form.acte"
+                        @change="fetchActeMedicalDetails(index)" :class="{
                           'is-invalid':
                             formErrors[index] && formErrors[index].acteMedical,
-                        }"
-                      >
+                        }">
                         <option value="SA">Sélectionner un acte médical</option>
-                        <option
-                          v-for="acte in actesMedicals"
-                          :key="acte.id"
-                          :value="acte.id"
-                        >
+                        <option v-for="acte in actesMedicals" :key="acte.id" :value="acte.id">
                           {{ acte.name }}
                         </option>
                         <option value="0">Autre</option>
                       </select>
 
-                      <div
-                        v-if="formErrors[index] && formErrors[index].acteMedical"
-                        class="error-message"
-                      >
+                      <div v-if="formErrors[index] && formErrors[index].acteMedical" class="error-message">
                         Ce champ est obligatoire.
                       </div>
                     </div>
@@ -203,124 +135,63 @@
                     <div v-if="form.acte === '0'" class="col-md-8 mb-2">
                       <label for="exampleInputUsername1">Désignation</label>
 
-                      <input
-                        type="text"
-                        class="form-control"
-                        id=""
-                        placeholder="Autre"
-                        v-model="form.autre"
-                        :class="{
-                          'is-invalid': formErrors[index] && formErrors[index].autreActe,
-                        }"
-                      />
+                      <input type="text" class="form-control" id="" placeholder="Autre" v-model="form.autre" :class="{
+                        'is-invalid': formErrors[index] && formErrors[index].autreActe,
+                      }" />
 
-                      <div
-                        v-if="formErrors[index] && formErrors[index].autreActe"
-                        class="error-message"
-                      >
+                      <div v-if="formErrors[index] && formErrors[index].autreActe" class="error-message">
                         Ce champ est obligatoire.
                       </div>
                     </div>
 
-                    <div
-                      v-if="form.acte !== '0'"
-                      class="form-group"
-                      :class="form.acte === '0' ? 'col-md-4 mb-2' : 'col-md-2 mb-2'"
-                    >
+                    <div v-if="form.acte !== '0'" class="form-group"
+                      :class="form.acte === '0' ? 'col-md-4 mb-2' : 'col-md-2 mb-2'">
                       <label for="exampleInputEmail1">Code</label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="exampleInputEmail1"
-                        :readonly="form.readonly"
-                        placeholder="Code"
-                        v-model="form.code"
-                      />
+                      <input type="email" class="form-control" id="exampleInputEmail1" :readonly="form.readonly"
+                        placeholder="Code" v-model="form.code" />
                     </div>
 
-                    <div
-                      class="form-group"
-                      :class="[
-                        form.acte === '0' ? 'col-md-4' : 'col-md-2',
-                        'mb-2',
-                        {
-                          'is-invalid':
-                            form.acte === '0' &&
-                            formErrors[index] &&
-                            formErrors[index].prix,
-                        },
-                      ]"
-                    >
-                      <label for="exampleInputUsername1">Prix</label>
-                      <input
-                        :readonly="form.readonly"
-                        type="text"
-                        class="form-control"
-                        id="exampleInputUsername1"
-                        placeholder="prix"
-                        v-model="form.prix"
-                        @input="updateMontantActe(index)"
-                      />
 
-                      <div
-                        v-if="
-                          form.acte === '0' && formErrors[index] && formErrors[index].prix
-                        "
-                        class="error-message"
-                      >
+                    <div class="form-group" :class="[
+                      form.acte === '0' ? 'col-md-4' : 'col-md-2',
+                      'mb-2',
+                      {
+                        'is-invalid':
+                          form.acte === '0' &&
+                          formErrors[index] &&
+                          formErrors[index].prix,
+                      },
+                    ]">
+                      <label for="exampleInputUsername1">Prix</label>
+                      <input :readonly="form.readonly" type="text" class="form-control" id="exampleInputUsername1"
+                        placeholder="prix" v-model="form.prix" @input="updateMontantActe(index)" />
+
+                      <div v-if="form.acte === '0' && formErrors[index] && formErrors[index].prix
+                        " class="error-message">
                         Ce champ prix est obligatoire.
                       </div>
                     </div>
 
-                    <div
-                      class="form-group"
-                      :class="form.acte === '0' ? 'col-md-4 mb-2' : 'col-md-2 mb-2'"
-                    >
+                    <div class="form-group" :class="form.acte === '0' ? 'col-md-4 mb-2' : 'col-md-2 mb-2'">
                       <label for="exampleInputUsername1">Quantité</label>
-                      <input
-                        type="number"
-                        :min="1"
-                        class="form-control"
-                        id="exampleInputUsername1"
-                        @input="updateMontantActe(index)"
-                        placeholder="Quantité"
-                        v-model="form.quantite"
-                        :class="{
+                      <input type="number" :min="1" class="form-control" id="exampleInputUsername1"
+                        @input="updateMontantActe(index)" placeholder="Quantité" v-model="form.quantite" :class="{
                           'is-invalid': formErrors[index] && formErrors[index].quantite,
-                        }"
-                      />
-                      <div
-                        v-if="formErrors[index] && formErrors[index].quantite"
-                        class="error-message"
-                      >
+                        }" />
+                      <div v-if="formErrors[index] && formErrors[index].quantite" class="error-message">
                         Ce champ est obligatoire.
                       </div>
                     </div>
-                    <div
-                      class="form-group"
-                      :class="form.acte === '0' ? 'col-md-4 mb-2' : 'col-md-2 mb-2'"
-                    >
+                    <div class="form-group" :class="form.acte === '0' ? 'col-md-4 mb-2' : 'col-md-2 mb-2'">
                       <label for="exampleInputUsername1">Montant</label>
-                      <input
-                        readonly
-                        type="text"
-                        class="form-control"
-                        id="exampleInputUsername1"
-                        placeholder="Montant"
-                        v-model="form.montant"
-                      />
+                      <input readonly type="text" class="form-control" id="exampleInputUsername1" placeholder="Montant"
+                        v-model="form.montant" />
                     </div>
 
                     <!-- <div class="form-group col-md-1" style="margin-top: 1.7rem;"> -->
                     <div class="form-group col-md-1">
-                      <b-button
-                        size="sm"
-                        v-b-tooltip.hover
-                        title="Supprimer"
-                        variant="danger"
-                        @click.prevent="deleteForm(index)"
-                        v-if="forms.length >= 2"
-                      >
+                      <b-button size="sm" v-b-tooltip.hover title="Supprimer" variant="danger"
+                        @click.prevent="deleteForm(index)" v-if="forms.length >= 2">
                         <i class="mdi mdi mdi-close-box text-white menu-icon"></i>
                       </b-button>
                     </div>
@@ -331,13 +202,7 @@
 
                 <div class="control-group col-md-12 p-1 mt-n3 row">
                   <div class="form-group ml-4">
-                    <b-button
-                      size="sm"
-                      v-b-tooltip.hover
-                      title="Ajouter un acte"
-                      variant="success"
-                      @click="addForm"
-                    >
+                    <b-button size="sm" v-b-tooltip.hover title="Ajouter un acte" variant="success" @click="addForm">
                       <i class="mdi mdi mdi-plus-box text-white menu-icon"></i>
                     </b-button>
                   </div>
@@ -346,39 +211,18 @@
                 <div class="control-group p-2">
                   <div class="row">
                     <div class="form-group col-md-12">
-                      <input
-                        readonly
-                        type="text"
-                        class="form-control text-right"
-                        id=""
-                        placeholder="Montant"
-                        :value="
-                          'Total Montant :    ' + calculateTotalMontantActe() + '   FCFA'
-                        "
-                        style="text-align: right !important"
-                      />
+                      <input readonly type="text" class="form-control text-right" id="" placeholder="Montant" :value="'Total Montant :    ' + calculateTotalMontantActe() + '   FCFA'
+                        " style="text-align: right !important" />
                     </div>
                   </div>
                 </div>
 
-                <input
-                  readonly
-                  type="hidden"
-                  class="form-control text-right pr-5 font-weight-bold"
-                  id=""
-                  placeholder="Montant"
-                  :value="'Total  :    ' + calculateTotalMontant() + '   FCFA'"
-                  style="text-align: right !important"
-                />
-                <input
-                  readonly
-                  type="hidden"
-                  class="form-control text-right pr-5 font-weight-bold"
-                  id=""
-                  placeholder="Montant"
-                  :value="'Total  :    ' + calculateTotalMontantEspece() + '   FCFA'"
-                  style="text-align: right !important"
-                />
+                <input readonly type="hidden" class="form-control text-right pr-5 font-weight-bold" id=""
+                  placeholder="Montant" :value="'Total  :    ' + calculateTotalMontant() + '   FCFA'"
+                  style="text-align: right !important" />
+                <input readonly type="hidden" class="form-control text-right pr-5 font-weight-bold" id=""
+                  placeholder="Montant" :value="'Total  :    ' + calculateTotalMontantEspece() + '   FCFA'"
+                  style="text-align: right !important" />
 
                 <div class="control-group p-2" style="text-align: right !important">
                   <div class="row">
@@ -386,15 +230,9 @@
                       <label for="exampleInputUsername1">
                         <strong> Montant Total A Payer </strong>
                       </label>
-                      <input
-                        readonly
-                        type="text"
-                        class="form-control font-weight-bold"
-                        id="exampleInputUsername1"
-                        v-model="momoDataEspece.montant"
-                        placeholder="Montant total"
-                        style="text-align: right !important"
-                      />
+                      <input readonly type="text" class="form-control font-weight-bold" id="exampleInputUsername1"
+                        v-model="momoDataEspece.montant" placeholder="Montant total"
+                        style="text-align: right !important" />
                     </div>
                   </div>
                 </div>
@@ -403,18 +241,10 @@
                   <div class="row">
                     <div class="form-group col-md-12">
                       <label for="exampleFormControlSelect1"> Mode de Paiement</label>
-                      <select
-                        class="form-control mb-3"
-                        id="exampleFormControlSelect1"
-                        v-model="selectedOptionMode"
-                        @change="fetchModePayementDetails"
-                      >
+                      <select class="form-control mb-3" id="exampleFormControlSelect1" v-model="selectedOptionMode"
+                        @change="fetchModePayementDetails">
                         <option value="" class="">Sélectionnez un Mode</option>
-                        <option
-                          v-for="mode in modePayements"
-                          :key="mode.id"
-                          :value="mode.id"
-                        >
+                        <option v-for="mode in modePayements" :key="mode.id" :value="mode.id">
                           {{ mode.mode }}
                         </option>
                       </select>
@@ -424,88 +254,54 @@
 
                 <div class="p-2 container-fluid">
                   <div v-if="selectedOptionMode === 1" class="control-group">
-                    <img
-                      src="@/assets/images/mode-espece.png"
-                      alt="patient"
-                      class="row col-md-12 mx-auto h-25"
-                      style="width: 180px"
-                    />
+                    <img src="@/assets/images/mode-espece.png" alt="patient" class="row col-md-12 mx-auto h-25"
+                      style="width: 180px" />
 
                     <div class="p-1 mt-1 row">
                       <div class="form-group p-4 mx-auto">
-                        <button
-                          @click="showConfirmationModal"
-                          type="button"
-                          class="btn btn-success d-flex btn btn-block btn-block text-center"
-                        >
+                        <button @click="showConfirmationModal" type="button"
+                          class="btn btn-success d-flex btn btn-block btn-block text-center">
                           <i class="mdi mdi-check-circle-outline menu-icon"></i>
                           <span class="text-center ml-1">Valider</span>
                         </button>
+
                       </div>
                     </div>
                   </div>
 
                   <div v-if="selectedOptionMode === 2" class="control-group">
-                    <img
-                      src="@/assets/images/mtn.jpg"
-                      alt="patient"
-                      class="row col-md-12 mx-auto h-25"
-                      style="width: 170px"
-                    />
+                    <img src="@/assets/images/mtn.jpg" alt="patient" class="row col-md-12 mx-auto h-25"
+                      style="width: 170px" />
 
                     <div class="p-2 mt-4 row">
                       <div class="form-group col-md-4">
                         <!-- <label for="exampleInputEmail1">Nom {{ momoData.statut }}</label> -->
-                        <label for="exampleInputEmail1"
-                          >Nom <span style="color: red">*</span>
+                        <label for="exampleInputEmail1">Nom <span style="color: red">*</span>
                         </label>
-                        <input
-                          v-model="momoData.nom"
-                          type="text"
-                          class="form-control"
-                          id="exampleInputEmail1"
-                          placeholder="Nom"
-                          required
-                          :class="{ 'is-invalid': formErrors.nom }"
-                          @input="formErrors.nom = false"
-                        />
+                        <input v-model="momoData.nom" type="text" class="form-control" id="exampleInputEmail1"
+                          placeholder="Nom" required :class="{ 'is-invalid': formErrors.nom }"
+                          @input="formErrors.nom = false" />
                         <div v-if="formErrors.nom" class="error-message">
                           Le champ Nom est requis.
                         </div>
                       </div>
                       <div class="form-group col-md-4">
-                        <label for="exampleInputEmail1"
-                          >Prénom(s) <span style="color: red">*</span>
+                        <label for="exampleInputEmail1">Prénom(s) <span style="color: red">*</span>
                         </label>
-                        <input
-                          v-model="momoData.prenom"
-                          type="text"
-                          class="form-control"
-                          id="exampleInputEmail1"
-                          placeholder="Prénom(s)"
-                          required
-                          :class="{ 'is-invalid': formErrors.prenom }"
-                          @input="formErrors.prenom = false"
-                        />
+                        <input v-model="momoData.prenom" type="text" class="form-control" id="exampleInputEmail1"
+                          placeholder="Prénom(s)" required :class="{ 'is-invalid': formErrors.prenom }"
+                          @input="formErrors.prenom = false" />
                         <div v-if="formErrors.prenom" class="error-message">
                           Le champ Prénom est requis.
                         </div>
                       </div>
 
                       <div class="form-group col-md-2">
-                        <label for="exampleInputEmail1"
-                          >Téléphone <span style="color: red">*</span>
+                        <label for="exampleInputEmail1">Téléphone <span style="color: red">*</span>
                         </label>
-                        <input
-                          v-model="momoData.telephone"
-                          type="text"
-                          class="form-control"
-                          id="exampleInputEmail1"
-                          placeholder="Téléphone"
-                          required
-                          :class="{ 'is-invalid': formErrors.telephone }"
-                          @input="formErrors.telephone = false"
-                        />
+                        <input v-model="momoData.telephone" type="text" class="form-control" id="exampleInputEmail1"
+                          placeholder="Téléphone" required :class="{ 'is-invalid': formErrors.telephone }"
+                          @input="formErrors.telephone = false" />
                         <div v-if="formErrors.telephone" class="error-message">
                           Ce champs est requis ou invalid.
                         </div>
@@ -513,23 +309,13 @@
 
                       <div class="form-group col-md-2">
                         <label for="exampleInputUsername1">Montant Total A Payer</label>
-                        <input
-                          v-model="momoData.montant"
-                          readonly
-                          type="text"
-                          class="form-control"
-                          id="exampleInputUsername1"
-                          placeholder="Montant total"
-                          required
-                        />
+                        <input v-model="momoData.montant" readonly type="text" class="form-control"
+                          id="exampleInputUsername1" placeholder="Montant total" required />
                       </div>
 
                       <div class="form-group p-2 mx-auto">
-                        <button
-                          @click="validerPayement"
-                          type="button"
-                          class="btn btn-success d-flex mx-auto btn btn-block btn-block text-center"
-                        >
+                        <button @click="validerPayement" type="button"
+                          class="btn btn-success d-flex mx-auto btn btn-block btn-block text-center">
                           <i class="mdi mdi-check-circle-outline menu-icon"></i>
                           <span class="text-center ml-1">Valider</span>
                         </button>
@@ -538,20 +324,13 @@
                   </div>
 
                   <div v-if="selectedOptionMode === 3" class="control-group">
-                    <img
-                      src="@/assets/images/fedapay.png"
-                      alt="patient"
-                      class="row col-md-12 mx-auto h-50"
-                      style="width: 300px"
-                    />
+                    <img src="@/assets/images/fedapay.png" alt="patient" class="row col-md-12 mx-auto h-50"
+                      style="width: 300px" />
 
                     <div class="p-1 mt-1 row">
                       <div class="form-group p-4 mx-auto" @click="validerPayement">
-                        <button
-                          id="pay-btn"
-                          type="button"
-                          class="btn btn-success d-flex btn btn-block btn-block text-center"
-                        >
+                        <button id="pay-btn" type="button"
+                          class="btn btn-success d-flex btn btn-block btn-block text-center">
                           <i class="mdi mdi-check-circle-outline menu-icon"></i>
                           <span class="text-center ml-1">Valider</span>
                         </button>
@@ -560,57 +339,41 @@
                   </div>
 
                   <div v-if="selectedOptionMode === 4" class="control-group">
-                    <img
-                      src="@/assets/images/kkiapay.jpg"
-                      alt="patient"
-                      class="row col-md-12 mx-auto h-50"
-                      style="width: 300px"
-                    />
+                    <img src="@/assets/images/kkiapay.jpg" alt="patient" class="row col-md-12 mx-auto h-50"
+                      style="width: 300px" />
 
                     <div class="p-1 mt-1 row">
                       <div class="form-group p-4 mx-auto home" @click="validerPayement">
-                        <button
-                          id=""
-                          type="button"
-                          class="btn btn-success d-flex btn btn-block btn-block text-center"
-                        >
+                        <button id="" type="button" class="btn btn-success d-flex btn btn-block btn-block text-center">
                           <i class="mdi mdi-check-circle-outline menu-icon"></i>
                           <span class="text-center ml-1">Valider</span>
                         </button>
                       </div>
                     </div>
                   </div>
+
                 </div>
               </fieldset>
             </form>
 
-            <div
-              class="modal fade"
-              id="confirmationMOMO"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="confirmationMOMOLabel1"
-              aria-hidden="true"
-            >
+            <div class="modal fade" id="confirmationMOMO" tabindex="-1" role="dialog"
+              aria-labelledby="confirmationMOMOLabel1" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
+
+
                     <h5 class="modal-title" id="confirmationMOMOLabel">
                       {{
                         momoData.statut === "PENDING"
-                          ? "Validation en cours"
-                          : momoData.statut === "FAILED"
+                        ? "Validation en cours"
+                        : momoData.statut === "FAILED"
                           ? "Échec de paiement"
                           : "Paiement réussi avec succès"
                       }}
                     </h5>
 
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
@@ -618,66 +381,38 @@
                   <div class="modal-body" style="text-align: center">
                     <div id="pending-content" v-if="momoData.statut === 'PENDING'">
                       <!-- <img src="https://onecall.ci/fr/smspro/assets/img/loader.gif" alt="Trulli" width="300" height="233"> -->
-                      <img
-                        src="../../assets/images/loading.gif"
-                        alt="Trulli"
-                        width="200"
-                        height="200"
-                      />
+                      <img src="../../assets/images/loading.gif" alt="Trulli" width="200" height="200" />
                       <h3 class="mt-3">
-                        <label style="color: #1d7db4"
-                          >Veuillez patienter s'il vous plaît...</label
-                        >
+                        <label style="color: #1d7db4">Veuillez patienter s'il vous plaît...</label>
                       </h3>
                     </div>
 
                     <div id="success-content" v-if="momoData.statut == 'SUCCESSFUL'">
                       <!-- <img src="https://onecall.ci/fr/smspro/assets/img/loader.gif" alt="Trulli" width="300" height="233"> -->
-                      <img
-                        src="../../assets/images/img-valider.png"
-                        alt="logo"
-                        class="w-50"
-                      />
+                      <img src="../../assets/images/img-valider.png" alt="logo" class="w-50" />
                       <!-- <h4><a href="#"> Cliquez ici pour continuer le processus.</a></h4> -->
                     </div>
 
                     <div id="failed-content" v-if="momoData.statut === 'FAILED'">
                       <!-- <img src="https://onecall.ci/fr/smspro/assets/img/loader.gif" alt="Trulli" width="300" height="233"> -->
-                      <img
-                        src="../../assets/images/delete.png"
-                        alt="Trulli"
-                        width="200"
-                        height="200"
-                      />
+                      <img src="../../assets/images/delete.png" alt="Trulli" width="200" height="200" />
                       <h4>Le paiement a échoué. Veuillez réessayer.</h4>
                     </div>
                   </div>
 
                   <div class="modal-footer">
-                    <button
-                      v-if="momoData.statut === 'PENDING'"
-                      type="button"
-                      class="btn btn-outline-danger text-dark"
-                      @click="annulerMomo"
-                    >
+                    <button v-if="momoData.statut === 'PENDING'" type="button" class="btn btn-outline-danger text-dark"
+                      @click="annulerMomo">
                       Annuler
                     </button>
 
-                    <button
-                      class="btn btn-outline-danger text-dark"
-                      v-if="momoData.statut === 'FAILED'"
-                      data-dismiss="modal"
-                      type="button"
-                    >
+                    <button class="btn btn-outline-danger text-dark" v-if="momoData.statut === 'FAILED'"
+                      data-dismiss="modal" type="button">
                       Fermer
                     </button>
 
-                    <button
-                      v-if="momoData.statut === 'SUCCESSFUL'"
-                      type="button"
-                      class="btn btn-outline-success text-dark mx-auto mt-n2"
-                      @click="ShowFacture"
-                    >
+                    <button v-if="momoData.statut === 'SUCCESSFUL'" type="button"
+                      class="btn btn-outline-success text-dark mx-auto mt-n2" @click="ShowFacture">
                       <i class="mdi mdi mdi-cloud-download"></i> Cliquer ici pour imprimer
                       la facture
                     </button>
@@ -687,56 +422,35 @@
               </div>
             </div>
 
-            <div
-              class="modal fade"
-              id="confirmationModalFedapay"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="confirmationMOMOLabel1"
-              aria-hidden="true"
-            >
+            <div class="modal fade" id="confirmationModalFedapay" tabindex="-1" role="dialog"
+              aria-labelledby="confirmationMOMOLabel1" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
+                  
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
 
                   <div class="modal-body" style="text-align: center">
                     <div id="success-content" v-if="statusFedapay == 'approved'">
+
                       <!-- <img src="https://onecall.ci/fr/smspro/assets/img/loader.gif" alt="Trulli" width="300" height="233"> -->
 
-                      <img
-                        src="../../assets/images/img-valider.png"
-                        alt="logo"
-                        class="w-50"
-                      />
+                      <img src="../../assets/images/img-valider.png" alt="logo" class="w-50" />
                       <!-- <h4><a href="#"> Cliquez ici pour continuer le processus.</a></h4> -->
                     </div>
                   </div>
 
                   <div class="modal-footer">
-                    <button
-                      class="btn btn-outline-danger text-dark"
-                      v-if="statusFedapay == 'canceled'"
-                      data-dismiss="modal"
-                      type="button"
-                    >
+                    <button class="btn btn-outline-danger text-dark" v-if="statusFedapay == 'canceled'"
+                      data-dismiss="modal" type="button">
                       Fermer
                     </button>
 
-                    <button
-                      v-if="statusFedapay == 'approved'"
-                      type="button"
-                      class="btn btn-outline-success text-dark mx-auto mt-n2"
-                      @click="ShowFacture"
-                    >
+                    <button v-if="statusFedapay == 'approved'" type="button"
+                      class="btn btn-outline-success text-dark mx-auto mt-n2" @click="ShowFacture">
                       <i class="mdi mdi mdi-cloud-download"></i> Cliquer ici pour imprimer
                       la facture
                     </button>
@@ -746,26 +460,17 @@
             </div>
 
             <div>
-              <div
-                class="modal fade"
-                id="confirmationModal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="confirmationModalLabel1"
-                aria-hidden="true"
-              >
+              
+
+              <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog"
+                aria-labelledby="confirmationModalLabel1" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="confirmationModalLabel">
                         Confirmation
                       </h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -773,19 +478,11 @@
                       Êtes-vous sûr de vouloir valider le paiement ?
                     </div>
                     <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-outline-danger text-dark"
-                        data-dismiss="modal"
-                      >
+                      <button type="button" class="btn btn-outline-danger text-dark" data-dismiss="modal">
                         Non
                       </button>
 
-                      <button
-                        type="button"
-                        class="btn btn-outline-success text-dark"
-                        @click="validerPayement"
-                      >
+                      <button type="button" class="btn btn-outline-success text-dark" @click="validerPayement">
                         Oui
                       </button>
                     </div>
@@ -795,36 +492,21 @@
             </div>
 
             <div>
-              <div
-                class="modal fade"
-                id="confirmationModalpay"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="confirmationModalPayLabel"
-                aria-hidden="true"
-              >
+              <div class="modal fade" id="confirmationModalpay" tabindex="-1" role="dialog"
+                aria-labelledby="confirmationModalPayLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="confirmationModalPayLabel">
                         Paiement validé avec succès
                       </h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
 
                     <div class="modal-body text-center">
-                      <img
-                        src="@/assets/images/img-valider.png"
-                        alt="logo"
-                        class="w-50"
-                      />
+                      <img src="@/assets/images/img-valider.png" alt="logo" class="w-50" />
                       <p>
                         Vous avez reçu un paiement de {{ patient.nom }}
                         {{ patient.prenom }} !
@@ -832,11 +514,7 @@
                     </div>
 
                     <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-outline-success text-dark mx-auto mt-n2"
-                        @click="ShowFacture"
-                      >
+                      <button type="button" class="btn btn-outline-success text-dark mx-auto mt-n2" @click="ShowFacture">
                         <i class="mdi mdi mdi-cloud-download"></i> Cliquer ici pour
                         imprimer la facture
                       </button>
@@ -847,26 +525,15 @@
             </div>
 
             <div>
-              <div
-                class="modal fade"
-                id="paiementencour"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="paiementencourLabel"
-                aria-hidden="true"
-              >
+              <div class="modal fade" id="paiementencour" tabindex="-1" role="dialog"
+                aria-labelledby="paiementencourLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="paiementencourLabel">
                         Paiement en cours de validation
                       </h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -877,40 +544,25 @@
               </div>
             </div>
 
-            <div
-              class="modal fade"
-              id="exampleModal"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div
-                class="modal-dialog modal-dialog-centered modal-dialog modal-xl"
-                role="document"
-              >
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog modal-xl" role="document">
                 <div class="modal-content bg-white">
                   <div class="modal-header">
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body" id="print-section" ref="modalContent">
                     <div class="container-fluid">
                       <div class="row mb-2 mr-0 ml-0 col-sm-12">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-12 text-center mt-auto mx-auto">
-                          <img
-                            src="@/assets/images/logopay.jpeg"
-                            alt="logo"
-                            class="w-25"
-                          />
+                        <div class="col-sm-4">
+                   
                         </div>
+                        <div class="col-sm-12 text-center mt-auto mx-auto">
+                          <img src="@/assets/images/logopay.jpeg" alt="logo" class="w-25" />
+                        </div>
+
                       </div>
 
                       <hr style="background-color: rgb(156, 151, 151)" class="mt-n2" />
@@ -963,12 +615,10 @@
                                 <strong>Montant Total (+) </strong>
                               </td>
                               <td>
-                                <strong
-                                  >{{
-                                    formatNumber(calculateTotalMontantActe())
-                                  }}
-                                  FCFA</strong
-                                >
+                                <strong>{{
+                                  formatNumber(calculateTotalMontantActe())
+                                }}
+                                  FCFA</strong>
                               </td>
                             </tr>
 
@@ -977,9 +627,7 @@
                                 <strong> Total Prise en charge (-)</strong>
                               </td>
                               <td>
-                                <strong
-                                  >{{ formatNumber(totalPriseEncharge) }} FCFA</strong
-                                >
+                                <strong>{{ formatNumber(totalPriseEncharge) }} FCFA</strong>
                               </td>
                             </tr>
 
@@ -1001,20 +649,14 @@
                             </tr>
 
                             <tr>
-                              <td
-                                colspan="5"
-                                class="text-right"
-                                style="background-color: rgb(213, 219, 218)"
-                              >
+                              <td colspan="5" class="text-right" style="background-color: rgb(213, 219, 218)">
                                 <strong>Montant Total Versé</strong>
                               </td>
                               <td style="background-color: rgb(213, 219, 218)">
-                                <strong
-                                  >{{
-                                    formatNumber(calculateTotalMontant())
-                                  }}
-                                  FCFA</strong
-                                >
+                                <strong>{{
+                                  formatNumber(calculateTotalMontant())
+                                }}
+                                  FCFA</strong>
                               </td>
                             </tr>
                           </tfoot>
@@ -1023,39 +665,31 @@
 
                       <div class="row mt-1">
                         <div class="col-sm-6">
+
                           <!-- <p>Arrête la présente facture à la somme de : <strong> Cinq mille ({{ calculateTotalMontant() | currency('FCFA', 0, ' ', ',') }}) FCFA </strong></p> -->
                           <!-- <p>Arrête la présente facture à la somme de : <strong>{{ convertNumberToLetter(10500) }} FCFA </strong></p> -->
-
+                          
                           <p>
                             la présente facture à la somme de :
-                            <strong
-                              >{{ convertNumberToLetter(calculateTotalMontant()) }} FCFA
+                            <strong>{{ convertNumberToLetter(calculateTotalMontant()) }} FCFA
                             </strong>
                           </p>
 
                           <!-- <img src="@/assets/images/codeQR.png" alt="logo" class="w-50" /> -->
 
                           <div>
-                            <router-link
-                              v-if="qrCodeUrl"
-                              :to="{
-                                name: 'FactureDetails',
-                                params: { id: payementId },
-                                path: '/facture' + $route.path,
-                              }"
-                              target="_blank"
-                            >
+                            <router-link v-if="qrCodeUrl" :to="{
+                              name: 'FactureDetails',
+                              params: { id: payementId },
+                              path: '/facture' + $route.path,
+                            }" target="_blank">
                               <img :src="qrCodeUrl" alt="QR Code" />
                             </router-link>
                           </div>
                         </div>
                         <div class="col-sm-6 text-right">
                           <p><strong> Le Chef Caissier </strong></p>
-                          <img
-                            src="@/assets/images/signature.png"
-                            alt="logo"
-                            class="w-25"
-                          />
+                          <img src="@/assets/images/signature.png" alt="logo" class="w-25" />
                           <p><strong> Félicien DAGBOGBO </strong></p>
                         </div>
                       </div>
@@ -1119,7 +753,6 @@ import { especeService } from "@/_services/espece_services.js";
 import { fedapayService } from "@/_services/fedapay_services.js";
 import { useToast, POSITION } from "vue-toastification";
 import QRCode from "qrcode";
-import { affectterminalService } from "@/_services";
 
 import "@/asset/js/fedapay_checkout.js?v=1.1.7";
 // import "@/asset/js/kkiapay.js";
@@ -1135,9 +768,7 @@ export default {
       selectedPatient: "",
       modePayements: [],
       // modePayement: {},
-      //utilisateur connecté
       user: JSON.parse(localStorage.getItem("user")),
-
       modePayement: "",
       patients: [], // Remplir cette liste avec les patients disponibles
       patient: {},
@@ -1161,7 +792,6 @@ export default {
       invoiceUrl: "",
       feesKikiapay: "",
       feesFedapay: "",
-      affectterminals: [],
 
       // pourcentageindigence:"",
 
@@ -1445,7 +1075,7 @@ export default {
         .getAllPatients()
         .then((res) => {
           this.patients = res.data.data;
-          console.log(this.patients);
+          // console.log(this.patients);
         })
         .catch((error) => {
           console.error(error);
@@ -2027,7 +1657,6 @@ export default {
           });
         } else {
           const acteMedical = this.actesMedicals.find((acte) => acte.id === form.acte);
-
           if (acteMedical) {
             this.actesSelectionnes.push({
               code: form.code,
@@ -2090,25 +1719,6 @@ export default {
     validerPayement() {
       // this.formErrors.patient = false;
 
-      // verifier si l'utilisateur est abilité à éffectuer eun payement
-      const verifyAffectTerminal = this.affectterminals.find(
-        (affectterminal) => affectterminal.user_id == this.user.id
-      );
-
-      if (!verifyAffectTerminal) {
-        this.$toast.error("Vous n'êtes pas affecté à un terminal!", {
-          position: "top-right",
-          timeout: 3000,
-          style: {
-            background: "#ff0000", // Couleur de fond rouge pour l'erreur
-            color: "#fff", // Couleur du texte
-            fontWeight: "bold",
-          },
-        });
-
-        return;
-      }
-
       this.formErrors = {};
       let isValid = true; // Variable pour suivre si tous les formulaires sont valides
       let hasQuantiteVide = false; // Variable pour suivre si au moins un champ quantité est vide
@@ -2122,17 +1732,17 @@ export default {
 
       // Vérifier les champs obligatoires
 
-      if (this.selectedOptionMode == 2 && this.momoData.nom == "") {
+      if (this.selectedOptionMode==2 && this.momoData.nom == "") {
         this.formErrors.nom = true;
-        c; // Sortir de la fonction en cas d'erreur
+        return; // Sortir de la fonction en cas d'erreur
       }
 
-      if (this.selectedOptionMode == 2 && this.momoData.prenom == "") {
+      if (this.selectedOptionMode==2 && this.momoData.prenom == "") {
         this.formErrors.prenom = true;
         return; // Sortir de la fonction en cas d'erreur
       }
 
-      if (this.selectedOptionMode == 2 && this.momoData.telephone == "") {
+      if (this.selectedOptionMode==2 && this.momoData.telephone == "") {
         this.formErrors.telephone = true;
         return; // Sortir de la fonction en cas d'erreur
       }
@@ -2192,6 +1802,7 @@ export default {
 
         if (
           (form.acte && form.acte == "0" && !form.prix) ||
+
           !/^\d{3,}$/.test(form.prix)
         ) {
           // si le champs acte medicaux n'est pas electionner
@@ -2254,7 +1865,7 @@ export default {
         return;
       }
 
-      if (this.selectedOptionMode == 2 && !/^\d{8,}$/.test(this.momoData.telephone)) {
+      if (this.selectedOptionMode==2 &&  !/^\d{8,}$/.test(this.momoData.telephone)) {
         this.$toast.error(
           "Le Numéro de téléphone MOMO est invalide. Veuillez entrer au moins 8 chiffres!",
           {
@@ -2330,7 +1941,9 @@ export default {
               this.validateData();
 
               // console.log('aaaaaaaaaaa'+ this.modePayement);
+              
             }
+
           })
 
           .catch((error) => {
@@ -2340,6 +1953,7 @@ export default {
     },
 
     createFacture(payementId) {
+
       console.log(this.user.id);
       const userId = this.user.id;
 
@@ -2365,12 +1979,15 @@ export default {
               ? this.montantKikiapay
               : 0,
         };
+
       });
+
 
       factureService
         .requestFacture(payementId, factures)
         .then((response) => {
           const factures = response.data.data;
+
         })
         .catch((error) => {
           console.error(error);
@@ -2403,17 +2020,18 @@ export default {
 
       // Vérifier les champs obligatoires
 
-      if (this.selectedOptionMode == 2 && this.momoData.nom == "") {
+      if (this.selectedOptionMode==2 && this.momoData.nom == "") {
         this.formErrors.nom = true;
         return; // Sortir de la fonction en cas d'erreur
       }
 
-      if (this.selectedOptionMode == 2 && this.momoData.prenom == "") {
+      if (this.selectedOptionMode==2 && this.momoData.prenom == "") {
         this.formErrors.prenom = true;
         return; // Sortir de la fonction en cas d'erreur
+
       }
 
-      if (this.selectedOptionMode == 2 && this.momoData.telephone == "") {
+      if (this.selectedOptionMode==2 && this.momoData.telephone == "") {
         this.formErrors.telephone = true;
         return; // Sortir de la fonction en cas d'erreur
       }
@@ -2468,23 +2086,6 @@ export default {
     },
 
     showConfirmationModal() {
-      const verifyAffectTerminal = this.affectterminals.find(
-        (affectterminal) => affectterminal.user_id == this.user.id
-      );
-
-      if (!verifyAffectTerminal) {
-        this.$toast.error("Vous n'êtes pas affecté à un terminal !", {
-          position: "top-right",
-          timeout: 3000,
-          style: {
-            background: "#ff0000", // Couleur de fond rouge pour l'erreur
-            color: "#fff", // Couleur du texte
-            fontWeight: "bold",
-          },
-        });
-
-        return;
-      }
       this.formErrors = {};
       let isValid = true; // Variable pour suivre si tous les formulaires sont valides
       let hasQuantiteVide = false; // Variable pour suivre si au moins un champ quantité est vide
@@ -2606,6 +2207,7 @@ export default {
         return;
       }
 
+
       if (isValid) {
         $("#confirmationModal").modal("show");
       }
@@ -2631,6 +2233,8 @@ export default {
       $("#exampleModal").modal("show");
     },
 
+ 
+
     printModal() {
       const modalContent = this.$refs.modalContent;
       const originalContents = document.body.innerHTML;
@@ -2646,6 +2250,9 @@ export default {
 
       $("#exampleModal").modal("hide");
     },
+
+
+
   },
 
   filters: {
@@ -2657,12 +2264,6 @@ export default {
   mounted() {
     // addKkiapayListener("success", this.successHandler);
 
-    //liste affecterTerminal
-
-    affectterminalService.getAllaffectterminals().then((res) => {
-      this.affectterminals = res.data.data;
-    });
-
     this.fetchActesMedicals();
     $("#confirmationMOMO").on("hidden.bs.modal", () => {
       this.momoData.statut = "PENDING";
@@ -2670,6 +2271,9 @@ export default {
 
     this.fetchPatients();
     this.fetchModePayements();
+
+
+
   },
 
   beforeDestroy() {
@@ -2680,6 +2284,7 @@ export default {
 
 <style scoped>
 @import "../../../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
+
 
 .text-red {
   color: red !important;
@@ -2704,13 +2309,13 @@ input[type="radio"].demo6 {
   display: none;
 }
 
-input[type="radio"].demo6 + label {
+input[type="radio"].demo6+label {
   position: relative;
   padding-left: 1.3rem;
 }
 
-input[type="radio"].demo6 + label::before,
-input[type="radio"].demo6 + label::after {
+input[type="radio"].demo6+label::before,
+input[type="radio"].demo6+label::after {
   display: block;
   position: absolute;
   box-sizing: border-box;
@@ -2718,7 +2323,7 @@ input[type="radio"].demo6 + label::after {
   border-radius: 1rem;
 }
 
-input[type="radio"].demo6 + label::before {
+input[type="radio"].demo6+label::before {
   bottom: 0;
   left: 0;
   border: 1px solid #ccc;
@@ -2727,14 +2332,14 @@ input[type="radio"].demo6 + label::before {
   height: 1rem;
 }
 
-input[type="radio"].demo6 + label::after {
+input[type="radio"].demo6+label::after {
   bottom: 3px;
   left: 3px;
   width: calc(1rem - 6px);
   height: calc(1rem - 6px);
 }
 
-input[type="radio"].demo6:checked + label::after {
+input[type="radio"].demo6:checked+label::after {
   background-color: #45c28e;
 }
 
@@ -2742,14 +2347,14 @@ input[type="checkbox"].demo2 {
   display: none;
 }
 
-input[type="checkbox"].demo2 + label::before {
+input[type="checkbox"].demo2+label::before {
   content: "";
   border: 1px solid #45c28e;
   padding: 0 0.6rem;
   margin-right: 0.3rem;
 }
 
-input[type="checkbox"].demo2:checked + label::before {
+input[type="checkbox"].demo2:checked+label::before {
   background-color: #45c28e;
 }
 
@@ -2817,7 +2422,7 @@ table th {
   font-weight: bold;
 }
 
-table tbody + tbody {
+table tbody+tbody {
   border-top: 2px solid #ffffff;
 }
 

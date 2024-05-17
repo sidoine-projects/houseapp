@@ -8,7 +8,7 @@
               >Paramétrage
             </a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">Affecter Terminal</li>
+          <li class="breadcrumb-item active" aria-current="page">Terminal</li>
           <li
             class="breadcrumb-item active text-success font-weight-bold"
             aria-current="page"
@@ -23,7 +23,7 @@
       <div class="col-lg-12 grid-margin">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Liste d'Affectation des utilisateurs aux  terminaux</h4>
+            <h4 class="card-title">Liste des terminaux</h4>
             <div class="mx-auto mt-5 mb-5">
               <router-link to="/affectterminal/create">
                 <button type="submit" class="btn btn-success mr-2">
@@ -182,7 +182,6 @@ export default {
   mounted() {
     affectterminalService.getAffectTerminal(this.id).then((res) => {
       this.affectterminal = res.data.data;
-
       this.affectterminal.id = this.id;
     });
     LoginService.getAllUsers()
@@ -249,7 +248,6 @@ export default {
     getNomTerminal(terminalId) {
       const terminal = this.terminals.find(
         (terminal) => terminal.id === terminalId
-        
       );
       return terminal ? terminal.nom : "";
     },

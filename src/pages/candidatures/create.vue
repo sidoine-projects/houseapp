@@ -1,420 +1,177 @@
 <template>
   <section class="container-scroller">
     <div class="row">
-      <div class="col-12 grid-margin">
-        <div class="card"></div>
-      </div>
-    </div>
-    <div class="page-header">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="javascript:void(0);" class="text-dark font-weight-bold"
-              >Tableau de board
-            </a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Gestion des Form
-          </li>
-          <li
-            class="breadcrumb-item active text-success font-weight-bold"
-            aria-current="page"
-          >
-            Ajouter
-          </li>
-        </ol>
-      </nav>
-    </div>
-
-    <div class="row">
       <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Ajouter un patient</h4>
-            <form class="forms-sample row" @submit.prevent="store">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputUsername1"
-                    >Nom <span style="color: red">*</span></label
-                  >
-                  <input
-                    :class="{ 'is-invalid': formErrors.errorNom }"
-                    @input="formErrors.errorNom = false"
-                    type="text"
-                    class="form-control"
-                    id="exampleInputUsername1"
-                    style="text-transform: uppercase"
-                    placeholder="Nom"
-                    v-model="patient.nom"
-                  />
-                  <div class="invalid-feedback" v-if="formErrors.errorNom">
-                    Ce champs est requis
+          <div class="">
+            <div
+              class="d-flex justify-content-between align-items-center col-md-12 mt-3 mb-3"
+            >
+              <!-- Flexbox pour aligner les éléments -->
+              <h6 class="mb-0 text-info">AJOUTER UNE FORMATION</h6>
+              <!-- Texte du h4 -->
+              <button class="btn btn-secondary">
+                <router-link to="/formations/list">
+                RETOUR
+              </router-link>
+              </button>
+              <!-- Bouton Retour -->
+            </div>
+            <hr class="row" />
+
+            <form class="forms-sample card-body mt-n2" @submit.prevent="store">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="form-group controls col-md-6">
+                    <label for="exampleFormControlSelect1"
+                      >Type de formation</label
+                    >
+                    <select
+                      :class="{ 'is-invalid': formErrors.errorPays }"
+                      @change="formErrors.errorPays = false"
+                      v-model="formation.typeFormation"
+                      class="form-control mb-3"
+                      id="exampleFormControlSelect1"
+                    >
+                      <option value="">Sélectionner un formation</option>
+                    </select>
+                    <div class="invalid-feedback" v-if="formErrors.errorPays">
+                      Ce champs est requis
+                    </div>
+                  </div>
+                  <div class="form-group controls col-md-6">
+                    <label for="exampleFormControlSelect1"
+                      >Ecole/institut</label
+                    >
+                    <select
+                      :class="{ 'is-invalid': formErrors.errorPays }"
+                      @change="formErrors.errorPays = false"
+                      v-model="formation.ecole"
+                      class="form-control mb-3"
+                      id="exampleFormControlSelect1"
+                    >
+                      <option value="">Sélectionner Ecole/institut</option>
+                    </select>
+                    <div class="invalid-feedback" v-if="formErrors.errorPays">
+                      Ce champs est requis
+                    </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputUsername1"
-                    >Prénom(s) <span style="color: red">*</span></label
-                  >
-                  <input
-                    :class="{ 'is-invalid': formErrors.errorPrenom }"
-                    type="text"
-                    @input="formErrors.errorPrenom = false"
-                    style="text-transform: capitalize"
-                    class="form-control"
-                    id="exampleInputUsername1"
-                    placeholder="Prénom"
-                    v-model="patient.prenom"
-                  />
-                  <div class="invalid-feedback" v-if="formErrors.errorPrenom">
-                    Ce champs est requis
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="form-group controls col-md-4">
+                    <label for="exampleFormControlSelect1"
+                      >Niveau d'étude</label
+                    >
+                    <select
+                      :class="{ 'is-invalid': formErrors.errorPays }"
+                      @change="formErrors.errorPays = false"
+                      v-model="formation.typeFormation"
+                      class="form-control mb-3"
+                      id="exampleFormControlSelect1"
+                    >
+                      <option value="">Sélectionner niveau d'étude</option>
+                    </select>
+                    <div class="invalid-feedback" v-if="formErrors.errorPays">
+                      Ce champs est requis
+                    </div>
+                  </div>
+                  <div class="form-group controls col-md-4">
+                    <label for="exampleFormControlSelect1"
+                      >Intitulé du diplôme</label
+                    >
+                    <select
+                      :class="{ 'is-invalid': formErrors.errorPays }"
+                      @change="formErrors.errorPays = false"
+                      v-model="formation.ecole"
+                      class="form-control mb-3"
+                      id="exampleFormControlSelect1"
+                    >
+                      <option value="">Sélectionner Intitulé du diplôme</option>
+                    </select>
+                    <div class="invalid-feedback" v-if="formErrors.errorPays">
+                      Ce champs est requis
+                    </div>
+                  </div>
+                  <div class="form-group controls col-md-4">
+                    <label for="exampleFormControlSelect1"
+                      >Domaine de formation</label
+                    >
+                    <select
+                      :class="{ 'is-invalid': formErrors.errorPays }"
+                      @change="formErrors.errorPays = false"
+                      v-model="formation.domaineFormation"
+                      class="form-control mb-3"
+                      id="exampleFormControlSelect1"
+                    >
+                      <option value="">
+                        Sélectionner Domaine de formation
+                      </option>
+                    </select>
+                    <div class="invalid-feedback" v-if="formErrors.errorPays">
+                      Ce champs est requis
+                    </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1"
-                    >Age <span style="color: red">*</span></label
-                  >
-                  <input
-                    :class="{ 'is-invalid': formErrors.errorAge }"
-                    @input="formErrors.errorAge = false"
-                    type="number"
-                    min="1"
-                    max="200"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="67"
-                    v-model="patient.age"
-                  />
-                  <div class="invalid-feedback" v-if="formErrors.errorAge">
-                    Ce champs est requis
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="dateDebut"
+                      >Date de début <span style="color: red">*</span></label
+                    >
+                    <input
+                      type="date"
+                      v-model="formation.dateDebut"
+                      @input="clearError('dateDebut')"
+                      class="form-control"
+                      id="dateDebut"
+                      placeholder="date_debut"
+                      :class="{
+                        'form-control': true,
+                        'is-invalid': formErrors.dateDebut,
+                      }"
+                    />
+                    <div
+                      v-if="formErrors.dateDebut"
+                      class="error-message text-danger"
+                    >
+                      {{ formErrors.dateDebut }}
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1"
-                    >Adresse <span style="color: red">*</span></label
-                  >
-                  <input
-                    :class="{ 'is-invalid': formErrors.errorAdresse }"
-                    @input="formErrors.errorAdresse = false"
-                    type="text"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Cotonou Sainte Rita C/574 M/DeGaules"
-                    v-model="patient.adresse"
-                  />
-                  <div class="invalid-feedback" v-if="formErrors.errorAdresse">
-                    Ce champs est requis
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1"
-                    >Email <span style="color: red">*</span></label
-                  >
-                  <input
-                    :class="{ 'is-invalid': formErrors.errorEmail }"
-                    @input="formErrors.errorEmail = false"
-                    type="email"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="xyz@example.com"
-                    v-model="patient.email"
-                  />
-                  <div class="invalid-feedback" v-if="formErrors.errorEmail">
-                    Ce champs est requis
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputConfirmPassword1"
-                    >Téléphone <span style="color: red">*</span></label
-                  >
-                  <input
-                    :class="{ 'is-invalid': formErrors.errorTelephone }"
-                    @input="formErrors.errorTelephone = false"
-                    type="text"
-                    class="form-control"
-                    id="exampleInputConfirmPassword1"
-                    placeholder="90098989"
-                    v-model="patient.telephone"
-                  />
-                  <div
-                    class="invalid-feedback"
-                    v-if="formErrors.errorTelephone"
-                  >
-                    Ce champs est requis ou invalide
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputConfirmPassword1"
-                    >Numéro Whatsapp <span style="color: red">*</span></label
-                  >
-                  <input
-                    :class="{ 'is-invalid': formErrors.errorWhatsapp }"
-                    @input="formErrors.errorWhatsapp = false"
-                    type="text"
-                    class="form-control"
-                    id="exampleInputConfirmPassword1"
-                    placeholder="90098989"
-                    v-model="patient.whatsapp"
-                  />
-                  <div class="invalid-feedback" v-if="formErrors.errorWhatsapp">
-                    Ce champs est requis ou invalide
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputConfirmPassword1"
-                    >Numéro d'Urgence <span style="color: red">*</span></label
-                  >
-                  <input
-                    :class="{ 'is-invalid': formErrors.errorUrgenceContact }"
-                    @input="formErrors.errorUrgenceContact = false"
-                    type="text"
-                    class="form-control"
-                    id="exampleInputConfirmPassword1"
-                    placeholder="90098989"
-                    v-model="patient.urgencecontact"
-                  />
-                  <div
-                    class="invalid-feedback"
-                    v-if="formErrors.errorUrgenceContact"
-                  >
-                    Ce champs est requis ou invalide
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1"
-                    >Profession <span style="color: red">*</span></label
-                  >
-                  <input
-                    :class="{ 'is-invalid': formErrors.errorProfession }"
-                    @input="formErrors.errorProfession = false"
-                    type="text"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    placeholder="Comptable"
-                    v-model="patient.profession"
-                  />
-                  <div
-                    class="invalid-feedback"
-                    v-if="formErrors.errorProfession"
-                  >
-                    Ce champs est requis ou invalide
+                  <div class="form-group col-md-6">
+                    <label for="dateFin"
+                      >Date de fin <span style="color: red">*</span></label
+                    >
+                    <input
+                      type="date"
+                      v-model="dateFin"
+                      @input="clearError('dateFin')"
+                      class="form-control"
+                      id="dateFin"
+                      placeholder="date_fin"
+                      :class="{
+                        'form-control': true,
+                        'is-invalid': formErrors.dateFin,
+                      }"
+                    />
+                    <div
+                      v-if="formErrors.dateFin"
+                      class="error-message text-danger"
+                    >
+                      {{ formErrors.dateFin }}
+                    </div>
+                    <div v-if="errorMessage" class="error-message text-danger">
+                      {{ errorMessage }}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="col-md-6">
-                <div class="form-group controls">
-                  <label for="exampleFormControlSelect1"
-                    >Situation Matrimoniale
-                    <span style="color: red">*</span></label
-                  >
-                  <select
-                    :class="{
-                      'is-invalid': formErrors.errorSituationMatrimoniale,
-                    }"
-                    @change="formErrors.errorSituationMatrimoniale = false"
-                    v-model="patient.situationmatrimoniale"
-                    class="form-control mb-3"
-                    id="exampleFormControlSelect1"
-                  >
-                    <option value="">Selectionner</option>
-                    <option value="Célibataire">Célibataire</option>
-                    <option value="Marié">Marié</option>
-                    <option value="Veuve">Veuve</option>
-                    <option value="Concubinage">Concubinage</option>
-                    <option value="Union libre">Union libre</option>
-                    <option value="Divorcé">Divorcé</option>
-                  </select>
-                  <div
-                    class="invalid-feedback"
-                    v-if="formErrors.errorSituationMatrimoniale"
-                  >
-                    Ce champs est requis
-                  </div>
-                </div>
-
-                <div class="form-group controls">
-                  <label for="exampleFormControlSelect1">Pays </label>
-                  <select
-                    :class="{ 'is-invalid': formErrors.errorPays }"
-                    @change="formErrors.errorPays = false"
-                    v-model="patient.pays_id"
-                    class="form-control mb-3"
-                    id="exampleFormControlSelect1"
-                  >
-                    <option value="null">Selectionner un Pays</option>
-                    <option
-                      v-for="pays in pays"
-                      :key="pays.id"
-                      :value="pays.id"
-                    >
-                      {{ pays.nom }}
-                    </option>
-                  </select>
-                  <div class="invalid-feedback" v-if="formErrors.errorPays">
-                    Ce champs est requis
-                  </div>
-                </div>
-                <div class="form-group controls">
-                  <label for="exampleFormControlSelect1"
-                    >Département <span style="color: red">*</span></label
-                  >
-                  <select
-                    :class="{ 'is-invalid': formErrors.errorDepartement }"
-                    v-model="patient.departement_id"
-                    @change="onDepartementSelect(patient.departement_id)"
-                    class="form-control mb-3"
-                    id="exampleFormControlSelect1"
-                  >
-                    <option value="null">Selectionner un Département</option>
-                    <option
-                      v-for="departement in departements"
-                      :key="departement.id"
-                      :value="departement.id"
-                    >
-                      {{ departement.nom }}
-                    </option>
-                  </select>
-                  <div
-                    class="invalid-feedback"
-                    v-if="formErrors.errorDepartement"
-                  >
-                    Ce champs est requis
-                  </div>
-                </div>
-                <div class="form-group controls">
-                  <label for="exampleFormControlSelect1"
-                    >Commune <span style="color: red">*</span></label
-                  >
-                  <select
-                    :class="{ 'is-invalid': formErrors.errorCommune }"
-                    v-model="patient.commune_id"
-                    @change="onCommuneSelect(patient.commune_id)"
-                    class="form-control mb-3"
-                    id="exampleFormControlSelect1"
-                  >
-                    <option value="null">Selectionner une Commune</option>
-                    <option
-                      v-for="commune in communes"
-                      :key="commune.id"
-                      :value="commune.id"
-                    >
-                      {{ commune.nom }}
-                    </option>
-                  </select>
-                  <div class="invalid-feedback" v-if="formErrors.errorCommune">
-                    Ce champs est requis
-                  </div>
-                </div>
-                <div class="form-group controls">
-                  <label for="exampleFormControlSelect1"
-                    >Arrondissement <span style="color: red">*</span></label
-                  >
-                  <select
-                    :class="{ 'is-invalid': formErrors.errorArrondissement }"
-                    v-model="patient.arrondissement_id"
-                    @change="onArrondissementSelect(patient.arrondissement_id)"
-                    class="form-control mb-3"
-                    id="exampleFormControlSelect1"
-                  >
-                    <option value="null">Selectionner un Arrondissement</option>
-
-                    <option
-                      v-for="arrondissement in arrondissements"
-                      :key="arrondissement.id"
-                      :value="arrondissement.id"
-                    >
-                      {{ arrondissement.nom }}
-                    </option>
-                  </select>
-                  <div
-                    class="invalid-feedback"
-                    v-if="formErrors.errorArrondissement"
-                  >
-                    Ce champs est requis
-                  </div>
-                </div>
-                <div class="form-group controls">
-                  <label for="exampleFormControlSelect1"
-                    >Quartier <span style="color: red">*</span></label
-                  >
-                  <select
-                    :class="{ 'is-invalid': formErrors.errorQuartier }"
-                    @change="formErrors.errorQuartier = false"
-                    v-model="patient.quartier_id"
-                    class="form-control mb-3"
-                    id="exampleFormControlSelect1"
-                  >
-                    <option value="null">Selectionner un Quartier</option>
-
-                    <option
-                      v-for="quartier in quartiers"
-                      :key="quartier.id"
-                      :value="quartier.id"
-                    >
-                      {{ quartier.nom }}
-                    </option>
-                  </select>
-                  <div class="invalid-feedback" v-if="formErrors.errorQuartier">
-                    Ce champs est requis
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputConfirmPassword1"
-                    >Autres informations</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleInputConfirmPassword1"
-                    placeholder=""
-                    v-model="patient.autre"
-                  />
-                </div>
-
-                <div class="form-group form-check">
-                  <label for="radio" class=""
-                    >Sexe <span style="color: red">*</span></label
-                  >
-                  <!-- <ul v-for="sexe in errorSexe" :key="sexe">
-                    <li class="text-danger">{{ sexe }}</li>
-                  </ul> -->
-                  <div class="p-2">
-                    <input
-                      type="radio"
-                      name="demo6"
-                      class="demo6 mx-auto form-check-input"
-                      id="demo6-a"
-                      value="Feminin"
-                      v-model="patient.sexe"
-                      :class="{ 'is-invalid': formErrors.errorSexe }"
-                    />
-                    <label for="demo6-a" class="mx-auto" style="font-size: 1rem"
-                      >Féminin</label
-                    >
-                    <input
-                      type="radio"
-                      name="demo6"
-                      class="demo6 mx-auto form-check-input"
-                      id="demo6-b"
-                      value="Masculin"
-                      v-model="patient.sexe"
-                    />
-                    <label for="demo6-b" class="mx-3" style="font-size: 1rem"
-                      >Masculin</label
-                    >
-                  </div>
-
-                  <div class="invalid-feedback" v-if="formErrors.errorSexe">
-                    Ce champs est requis
-                  </div>
-                </div>
-              </div>
-
-              <div class="mx-auto">
-                <button type="submit" class="btn btn-success mr-2">
-                  Ajouter
-                </button>
-                <button @click="cancel" class="btn btn-danger">Annuler</button>
+              <div class="mt-2 col-md-12">
+                <button type="submit" class="btn btn-info">AJOUTER</button>
+                <!-- <button @click="cancel" class="btn btn-danger">Annuler</button> -->
               </div>
             </form>
           </div>
@@ -444,24 +201,14 @@ export default {
       arrondissements: [],
       quartiers: [],
       isSexeSelected: true,
-      patient: {
-        pays_id: null,
-        departement_id: null,
-        commune_id: null,
-        arrondissement_id: null,
-        quartier_id: null,
-        nom: "",
-        prenom: "",
-        age: "",
-        adresse: "",
-        telephone: "",
-        email: "",
-        whatsapp: "",
-        profession: "",
-        situationmatrimoniale: "",
-        urgencecontact: "",
-        autre: "",
-        sexe: "Feminin",
+      formation: {
+        typeFormation: "",
+        ecole: "",
+        niveauEtude: "",
+        intituleDiplome: "",
+        domaineFormation: "",
+        anneeDebut: "",
+        anneeFin: "",
       },
       formErrors: {
         errorNom: "",
@@ -979,6 +726,24 @@ export default {
 <!-- <script src="@/assets/js/toastDemo.js"></script> -->
 
 <style>
+.background-text {
+  background-color: #f0f0f0; /* Couleur de fond */
+  padding: 20px; /* Ajout de marge intérieure pour le texte */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  position: relative; /* Position relative pour le positionnement du texte */
+}
+
+.background-text h4 {
+  position: absolute; /* Position absolue pour centrer le texte */
+  top: 50%; /* Aligner le haut du texte à 50% de la hauteur du conteneur */
+  left: 50%; /* Aligner le gauche du texte à 50% de la largeur du conteneur */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Utiliser transform pour centrer le texte */
+  margin: 0; /* Supprimer les marges par défaut */
+}
+
 select {
   cursor: pointer;
   height: 43px !important;
@@ -1035,5 +800,14 @@ input[type="checkbox"].demo2 + label::before {
 
 input[type="checkbox"].demo2:checked + label::before {
   background-color: #45c28e;
+}
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
 }
 </style>

@@ -18,6 +18,20 @@ const addUser = (user) => {
   return Axios.post("/users", user);
 };
 
+const addUserTalent = (user) => {
+  return Axios.post("/auth/register/talent", user);
+};
+const verifyCode = (code) => {
+  return Axios.post("/auth/verify", code);
+};
+const resendVerificationCode = (user) => {
+  return Axios.post("auth/resend-verification-code", user);
+};
+const logout = (user) => {
+  return Axios.post("auth/logout", user);
+};
+
+
 const updateUser = (user) => {
   return Axios.put("/users/" + user.id, user);
 };
@@ -73,28 +87,31 @@ export function setLoggedIn(value) {
   state.isLoggedIn = value;
 }
 
-const logout = () => {
-  Axios.post("/auth/logout")
-    .then((res) => {
-      console.log(res);
-      localStorage.clear();
-      window.location.replace("/auth-pages/login");
-    })
-    .catch((err) => alert("Vous ne pouvez pas vous déconnecter maintenant"));
-};
 
 export const LoginService = {
+  addUserTalent,
+  verifyCode,
+  resendVerificationCode,
+  login,
+  logout,
+  
+  
+  
+  
+  
+  
+  
   getAllUsers,
   getUser,
   addUser,
   updateUser,
   deleteUser,
   getUserr,
-  login,
+  
   getToken,
   saveToken,
   isLogged,
-  logout,
+
   setLoggedIn,
   resetPassword,
   requestPassword,

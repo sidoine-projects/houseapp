@@ -51,6 +51,7 @@
     "vue-codemirror": "^4.0.6",
     "vue-context": "^5.0.0",
     "vue-datatable": "^1.0.4",
+    "vue-froala-wysiwyg": "^4.2.0",
     "vue-full-calendar": "^2.7.0",
     "vue-gallery": "^2.0.1",
     "vue-good-wizard": "^1.4.1",

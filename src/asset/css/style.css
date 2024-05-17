@@ -1739,7 +1739,7 @@ h6 {
 }
 
 .counts .image {
-  background: url("../../images/fig3.jpg") center center no-repeat;
+  /* background: url("@/assets/images/logohire.png") center center no-repeat; */
   background-size: cover;
   min-height: 400px;
 }

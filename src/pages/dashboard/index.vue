@@ -20,7 +20,7 @@
       <div class="col-md-4 stretch-card grid-margin">
         <div class="card bg-gradient-success card-img-holder text-white">
           <div class="card-body">
-            <img src="../../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+            <!-- <img src="../../assets/images/logohire.png" class="card-img-absolute" alt="circle-image" /> -->
             <h4 class="font-weight-normal mb-3">Recettes Totale / jour <i
                 class="mdi mdi-diamond mdi-24px float-right"></i>
               <i class="mdi mdi-arrow-up mdi-24px float-right"></i>
@@ -36,7 +36,7 @@
       <div class="col-md-4 stretch-card grid-margin">
         <div class="card bg-gradient-danger card-img-holder text-white">
           <div class="card-body">
-            <img src="../../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+            <!-- <img src="../../assets/images/logohire.png" class="card-img-absolute" alt="circle-image" /> -->
             <h4 class="font-weight-normal mb-3">Decaissement / jour <i
                 class="mdi mdi-diamond-outline mdi-24px float-right"></i><i
                 class="mdi mdi-arrow-down mdi-24px float-right"></i>
@@ -50,8 +50,8 @@
       </div>
       <div class="col-md-4 stretch-card grid-margin">
         <div class="card bg-gradient-info card-img-holder text-white">
-          <div class="card-body">
-            <img src="../../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <!-- <div class="card-body">
+            <img src="../../assets/images/logohire.png" class="card-img-absolute" alt="circle-image" />
             <h4 class="font-weight-normal mb-3">Total Patient<i
                 class="mdi mdi-account-multiple-plus mdi-24px float-right"></i>
             </h4>
@@ -59,7 +59,7 @@
             <router-link to="/patients/list" class="nav-link text-white">
               <h6 class="card-text text-dark font-weight-bold">voir plus</h6>
             </router-link>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@
                 </ul>
               </div>
             </div>
-            <visitAndSalesStatitics class='mt-5' :height='100'></visitAndSalesStatitics>
+            <!-- <visitAndSalesStatitics class='mt-5' :height='100'></visitAndSalesStatitics> -->
           </div>
         </div>
       </div>
@@ -141,7 +141,7 @@
                   </tr>
                 </thead>
 
-                <tbody>
+                <!-- <tbody>
                   <tr v-for="(vente, index) in ventes" :key="vente.id">
                     <td>{{ index + 1 }}</td>
                     <td>{{ vente.reference }}</td>
@@ -158,7 +158,7 @@
                   </tr>
 
 
-                </tbody>
+                </tbody> -->
               </table>
             </div>
           </div>
@@ -332,9 +332,6 @@ import { DecaisseService } from "@/_services/decaissement_service.js";
 import 'vue2-datepicker/locale/fr';
 
 //Bootstrap and jQuery libraries
-
-
-
 export default {
   name: 'dashboard',
   components: {

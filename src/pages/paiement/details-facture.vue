@@ -5,8 +5,7 @@
       <div class="col-lg-12 grid-margin">
         <div class="card">
           <div class="card-body">
-            <h2 class="card-title py-3"
-              style="background-color: rgb(211, 207, 207); text-align: center; font-size: 20px; height:50px">
+            <h2 class="card-title py-3" style="background-color: rgb(211, 207, 207); text-align: center; font-size: 20px; height:50px">
               Détails facture</h2>
             <div class="container-fluid">
               <div class="row mb-2 mr-0 ml-0 col-sm-12 col-md-12 col-lg-12">
@@ -53,7 +52,7 @@
                 <div class="col-sm-6 text-right">
                   <h4>Facture N° {{ reference }}</h4>
                   <p> <strong>Date : {{ formatDate(date) }}</strong></p>
-                  <p>{{nomCentre}}</p>
+                  <p>Hôpital de Zone de KETOU</p>
                   <p>Tél. 68 90 65 45</p>
                 </div>
               </div>
@@ -104,13 +103,13 @@
                     <tr v-if="this.mode_payement_id == 3">
 
                       <td colspan="5" class="text-right"><strong> Fedapay fees (+)</strong></td>
-                      <td><strong>{{ formatNumber(this.getFedapay() - (calculerMontantTotal() - totalPriseEncharge)) }}
+                      <td><strong>{{ formatNumber(this.getFedapay() - (calculerMontantTotal()-totalPriseEncharge)) }}
                           FCFA</strong></td>
                     </tr>
                     <tr v-if="this.mode_payement_id == 4">
 
                       <td colspan="5" class="text-right"><strong> kkiapay fees (+)</strong></td>
-                      <td><strong>{{ formatNumber(this.getFedapay() - (calculerMontantTotal() - totalPriseEncharge)) }}
+                      <td><strong>{{ formatNumber(this.getFedapay() - (calculerMontantTotal()-totalPriseEncharge)) }}
                           FCFA</strong></td>
                     </tr>
                     <tr>
@@ -211,7 +210,6 @@ export default {
       getAllEspeceData: [],
       getAllMomosData: [],
       getAllFedapayData: [],
-      nomCentre: "",
 
     };
   },
@@ -334,7 +332,6 @@ export default {
           this.factureDetails = factureDetails;
           this.nom = this.factureDetails[0].nom;
           this.prenom = this.factureDetails[0].prenom;
-          this.nomCentre = this.factureDetails[0].nom_centre;
           this.mode_payement_id = this.factureDetails[0].mode_payement_id;
           this.reference = this.factureDetails[0].reference;
           this.mode_payement = this.factureDetails[0].mode_payement;

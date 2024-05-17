@@ -13,7 +13,7 @@
                       src="../../../assets/images/sante.png"
                       style="height: 60% !important;"
                     />
-                    <img class="w-30" src="../../../assets/images/oms.svg" />
+                    <img class="w-30" src="../../../assets/images/logohire.png" />
                   </div>
                   <center>
                     <div class="brand-logo">

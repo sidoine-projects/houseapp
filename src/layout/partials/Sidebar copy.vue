@@ -15,28 +15,21 @@
         <li class="nav-item" v-on:click="collapseAll">
           <router-link class="nav-link" to="/dashboard">
             <span class="menu-title">Tableau de board</span>
+            <i class="mdi menu-icon mdi-view-dashboard-outline"> </i>
+          </router-link>
+        </li>
 
-            <i class="mdi menu-icon special-style-icon"
-              ><img
-                src="@/assets/images/dashboard.png"
+        <li class="nav-item">
+          <span class="nav-link" v-b-toggle="'ui-basic'">
+            <span class="menu-title">Paramètrage</span>
+
+            <i class="menu-arrow menu-icon">
+              <img
+                src="@/assets/images/setting.png"
                 alt="patient"
                 style="width: 1rem; height: 1rem"
               />
             </i>
-          </router-link>
-        </li>
-
-        <li class="nav-item" >
-          <span class="nav-link" v-b-toggle="'ui-basic'">
-            <span class="menu-title">Paramètrage</span>
-
-            <i class="menu-arrow"></i>
-
-            <img
-              src="@/assets/images/setting.png"
-              alt="patient"
-              style="width: 1rem; height: 1rem"
-            />
           </span>
 
           <b-collapse accordion="sidebar-accordion" id="ui-basic">
@@ -59,132 +52,133 @@
 
               </li> -->
 
-              <li
-                class="nav-item"
-                
-              >
+              <li class="nav-item">
                 <router-link class="nav-link" to="/user/role/permissions"
                   >Droits utilisateurs</router-link
                 >
               </li>
 
-              <li
-                class="nav-item"
-               
-              >
+              <li class="nav-item">
                 <router-link class="nav-link" to="/affectterminal/list"
                   >AffectTerminal</router-link
                 >
               </li>
-              <li
-                class="nav-item"
-                
-              >
+              <li class="nav-item">
                 <router-link class="nav-link" to="/terminal/list"
                   >Terminal</router-link
                 >
               </li>
-              <li
-                class="nav-item"
-               
-              >
+              <li class="nav-item">
                 <router-link class="nav-link" to="/ephe/list"
                   >Type centre</router-link
                 >
               </li>
 
-              <li
-                class="nav-item"
-               
-              >
+              <li class="nav-item">
                 <router-link class="nav-link" to="/eph/list"
                   >Carte Sanitaire</router-link
                 >
               </li>
 
-              <li
-                class="nav-item"
-                
-              >
+              <!-- <li class="nav-item">
                 <router-link class="nav-link" to="/actes-medicaux/list"
                   >Actes médicaux</router-link
                 >
               </li>
 
-              <li
-                class="nav-item"
-                
-              >
+              <li class="nav-item">
                 <router-link class="nav-link" to="/indigence/list"
                   >Indigences</router-link
                 >
               </li>
 
-              <li
-                class="nav-item"
-                
-              >
+              <li class="nav-item">
                 <router-link class="nav-link" to="/compagnie/list"
                   >Compagnie</router-link
                 >
               </li>
 
-              <li
-                class="nav-item"
-               
-              >
+              <li class="nav-item">
                 <router-link class="nav-link" to="/assurance/list"
                   >Assurance Compagnie</router-link
                 >
-              </li>
+              </li> -->
             </ul>
           </b-collapse>
         </li>
 
-        <li class="nav-item" >
+        <li class="nav-item">
           <!-- v-if="permission.includes('Voir_module_patient')" -->
 
-          <router-link class="nav-link" to="/patients/list" style="text-decoration: none">
-            <!-- <span class="menu-title">Gestion des patients</span> -->
+          <router-link
+            class="nav-link"
+            to="/formations/list"
+            style="text-decoration: none"
+          >
+            <span class="menu-title">Formations</span>
 
-            <span class="menu-title">Gestion des patients</span>
-
-            <i class="mdi menu-icon special-style-icon"
-              ><img
-                src="@/assets/images/patients.png"
-                alt="patient"
-                style="width: 1rem; height: 1rem"
-              />
-            </i>
+            <i class="mdi menu-icon mdi-clipboard-multiple-outline"> </i>
           </router-link>
         </li>
 
-        <li
-          class="nav-item"
-          
-        >
+        <li class="nav-item">
           <!-- v-if="permission.includes('Voir_module_assurance_patient')" -->
 
           <router-link
             class="nav-link"
-            to="/priseencharge/list"
+            to="/experiences/list"
             style="text-decoration: none"
           >
-            <span class="menu-title"> Assurance patient </span>
+            <span class="menu-title">Expérience</span>
 
-            <i class="mdi menu-icon special-style-icon"
-              ><img
-                src="@/assets/images/patient.png"
-                alt="patient"
-                style="width: 1rem; height: 1rem"
-              />
-            </i>
+            <i class="mdi menu-icon mdi-bookmark-multiple-outline"> </i>
 
             <!-- <i class="menu-arrow"></i> -->
           </router-link>
         </li>
+        <li class="nav-item">
+          <!-- v-if="permission.includes('Voir_module_assurance_patient')" -->
 
-        <li class="nav-item" >
+          <router-link
+            class="nav-link"
+            to="/competences/list"
+            style="text-decoration: none"
+          >
+            <span class="menu-title">Compétences</span>
+
+            <i class="mdi menu-icon mdi-head-cog-outline"> </i>
+
+            <!-- <i class="menu-arrow"></i> -->
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <!-- v-if="permission.includes('Voir_module_assurance_patient')" -->
+
+          <router-link class="nav-link" to="/candidatures/list" style="text-decoration: none">
+            <span class="menu-title">Candidatures</span>
+
+            <i class="mdi menu-icon mdi-checkbox-multiple-marked-outline"> </i>
+
+            <!-- <i class="menu-arrow"></i> -->
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <!-- v-if="permission.includes('Voir_module_assurance_patient')" -->
+
+          <router-link
+            class="nav-link"
+            to="#"
+            style="text-decoration: none"
+          >
+            <span class="menu-title">Suivi mensuel</span>
+
+            <i class="mdi menu-icon mdi mdi-table-edit"> </i>
+
+            <!-- <i class="menu-arrow"></i> -->
+          </router-link>
+        </li>
+        <!-- 
+        <li class="nav-item">
           <router-link
             class="nav-link"
             to="/indigence-patient/list-indigence-patient"
@@ -199,17 +193,16 @@
                 style="width: 1rem; height: 1rem"
             /></i>
 
-            <!-- <i class="menu-arrow"></i> -->
           </router-link>
-        </li>
+        </li> -->
 
-        <li
-          class="nav-item"
-          
-        >
-          <!-- v-if="permission.includes('Voir_module_paiement_et_facturation')" -->
+        <!-- <li class="nav-item">
 
-          <router-link class="nav-link" to="/payement/list" style="text-decoration: none">
+          <router-link
+            class="nav-link"
+            to="/payement/list"
+            style="text-decoration: none"
+          >
             <span class="menu-title">Paiement et <br />Facturation</span>
 
             <i class="mdi menu-icon special-style-icon"
@@ -219,112 +212,11 @@
                 style="width: 1rem; height: 1rem"
             /></i>
 
-            /
-            <!-- <i class="menu-arrow"></i> -->
-            //
+     
           </router-link>
-        </li>
+        </li> -->
 
-        <li class="nav-item" >
-          <!-- v-if="permission.includes('Voir_module_tresorier')" -->
-          <span class="nav-link" v-b-toggle="'tresorerie'">
-            <span class="menu-title">Trésorerie</span>
-
-            <i class="menu-arrow"></i>
-
-            <img
-              src="@/assets/images/coins.png"
-              alt="sid"
-              style="width: 1rem; height: 1rem"
-            />
-          </span>
-
-          <b-collapse accordion="sidebar-accordion" id="tresorerie">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item">
-                <router-link class="nav-link" to="/tresorerie/list-encaissement"
-                  >Encaissement</router-link
-                >
-              </li>
-
-              <li class="nav-item">
-                <router-link class="nav-link" to="/tresorerie/list-decaissement">
-                  Décaissement</router-link
-                >
-              </li>
-            </ul>
-          </b-collapse>
-        </li>
-
-        <li class="nav-item" >
-          <!-- v-if="permission.includes('Voir_module_tresorier')" -->
-          <span class="nav-link" v-b-toggle="'rapport'">
-            <span class="menu-title">Rapports journaliers</span>
-
-            <i class="menu-arrow"></i>
-
-            <img
-              src="@/assets/images/report.png"
-              alt="sid"
-              style="width: 1rem; height: 1rem"
-            />
-          </span>
-
-          <b-collapse accordion="sidebar-accordion" id="rapport">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item">
-                <router-link class="nav-link" to="/rapport">Rapport Hôpital</router-link>
-              </li>
-
-              <li class="nav-item">
-                <router-link class="nav-link" to="/rapport/caissier"
-                  >Rapport Caissier</router-link
-                >
-              </li>
-
-              <li class="nav-item">
-                <router-link class="nav-link" to="/rapport/terminal"
-                  >Rapport Terminal</router-link
-                >
-              </li>
-            </ul>
-          </b-collapse>
-        </li>
-        <li
-          class="nav-item"
-         
-        >
-          <!-- v-if="permission.includes('Voir_module_tresorier')" -->
-          <span class="nav-link" v-b-toggle="'rapports'">
-            <span class="menu-title">Rapport Général</span>
-
-            <i class="menu-arrow"></i>
-
-            <img
-              src="@/assets/images/report.png"
-              alt="sid"
-              style="width: 1rem; height: 1rem"
-            />
-          </span>
-
-          <b-collapse accordion="sidebar-accordion" id="rapports">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item">
-                <router-link class="nav-link" to="/rapport-general/hospital"
-                  >Rapport Hôpital</router-link
-                >
-              </li>
-
-              <li class="nav-item">
-                <router-link class="nav-link" to="/rapport-general/geospatial"
-                  >Rapport Géospatial
-                </router-link>
-              </li>
-            </ul>
-          </b-collapse>
-        </li>
-
-        <li class="nav-item sidebar-actions">
+        <!-- <li class="nav-item sidebar-actions">
           <span class="nav-link" v-on:click="logout">
             <button
               class="btn btn-block btn-gradient-danger pt-3 mx-auto text-center"
@@ -336,7 +228,7 @@
               <span style="color: black !important">Déconnexion</span>
             </button>
           </span>
-        </li>
+        </li> -->
       </ul>
     </nav>
   </section>
@@ -403,6 +295,18 @@ export default {
   font-weight: bold;
   font-size: 4px;
 
-  font-family: "Times New Roman";
+  /* font-family: "Montserrat"; */
+}
+
+/* .menu-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100% !important; /* Pour que le contenu s'étende à 100% 
+  padding: 10px !important; /* Ajoutez le padding que vous souhaitez 
+} */
+
+.nav-item {
+  border-radius: 0 10px 10px 0; /* Coins arrondis sur le côté droit */
 }
 </style>
