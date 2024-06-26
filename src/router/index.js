@@ -38,7 +38,7 @@ const router = new Router({
       component: layoutEntreprise,
       children: [
         {
-          path: "entreprise",
+          path: "society",
           name: "dashboardEntreprise",
           component: () => import("@/pages/dashboard/indexEntreprise"),
           meta: { requiresAuth: true, role: "roleentreprise" },
@@ -1108,6 +1108,40 @@ const router = new Router({
   ],
 });
 
+// router.beforeEach((to, from, next) => {
+//   const publicPages = [
+//     "/accueil",
+//     "/register",
+//     "/register/talent",
+//     "/register/society",
+//     "/register/verifycode",
+//     "/login",
+//     "/auth-pages/forget-password",
+//     "/auth-pages/reset",
+//   ];
+//   const authRequired = !publicPages.includes(to.path); // to.path est la route demandé
+//   const loggedIn = localStorage.getItem("token");
+//   const userRoles = JSON.parse(localStorage.getItem("roles"));
+//   if (authRequired && !loggedIn) {
+//     next("/login");
+//   } else if (
+//     to.meta.requiresAuth &&
+//     to.meta.role &&
+//     to.meta.role !== userRole
+//   ) {
+//     // Rediriger vers le tableau de bord correspondant au rôle de l'utilisateur
+//     if (userRole == "roletalent") {
+//       next("/dashboard/talent");
+//     } else if (userRole == "roleentreprise") {
+//       next("/dashboard/society");
+//     } else {
+//       next("/login"); // Par défaut, rediriger vers une page d'erreur si le rôle n'est pas reconnu
+//     }
+//   } else {
+//     next();
+//   }
+// });
+
 router.beforeEach((to, from, next) => {
   const publicPages = [
     "/accueil",
@@ -1119,28 +1153,39 @@ router.beforeEach((to, from, next) => {
     "/auth-pages/forget-password",
     "/auth-pages/reset",
   ];
-  const authRequired = !publicPages.includes(to.path); // to.path est la route demandé
+  const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem("token");
-  const userRole = localStorage.getItem("role"); // Récupérer le rôle de l'utilisateur
+  const userRoles = JSON.parse(localStorage.getItem("roles"));
 
   if (authRequired && !loggedIn) {
-    next("/login");
-  } else if (
-    to.meta.requiresAuth &&
-    to.meta.role &&
-    to.meta.role !== userRole
-  ) {
-    // Rediriger vers le tableau de bord correspondant au rôle de l'utilisateur
-    if (userRole == "roletalent") {
-      next("/dashboard/talent");
-    } else if (userRole == "roleentreprise") {
-      next("/dashboard/entreprise");
-    } else {
-      next("/error-pages/error-404"); // Par défaut, rediriger vers une page d'erreur si le rôle n'est pas reconnu
-    }
-  } else {
-    next();
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté et que la page demandée nécessite une authentification
+    return next("/login");
   }
+
+  if (to.meta.requiresAuth) {
+    if (!loggedIn) {
+      return next("/login");
+    }
+
+    if (to.meta.role) {
+      const roleRequired = to.meta.role;
+
+      if (!userRoles.includes(roleRequired)) {
+        // Redirection en fonction du rôle de l'utilisateur
+        if (userRoles.includes("roletalent")) {
+          return next("/dashboard/talent");
+        } else if (userRoles.includes("roleentreprise")) {
+          return next("/dashboard/society");
+        } else {
+          return next("/login");
+        }
+      }
+    }
+  }
+
+  next();
 });
+
+
 
 export default router;

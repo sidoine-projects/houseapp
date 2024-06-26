@@ -11,18 +11,18 @@
                   <h1 class="display-1 mb-0">404</h1>
                 </div>
                 <div class="col-lg-6 error-page-divider text-lg-left pl-lg-4">
-                  <h2>SORRY!</h2>
-                  <h3 class="font-weight-light">The page you’re looking for was not found.</h3>
+                  <h2>Désolé!</h2>
+                  <h3 class="font-weight-light">La page que vous recherchez n'est pas trouvé.</h3>
                 </div>
               </div>
               <div class="row mt-5">
                 <div class="col-12 text-center mt-xl-2">
-                  <router-link class="text-white font-weight-medium" to="/">Back to home</router-link>
+                  <router-link class="text-white font-weight-medium" to="/">Retour </router-link>
                 </div>
               </div>
               <div class="row mt-5">
                 <div class="col-12 mt-xl-2">
-                  <p class="text-white font-weight-medium text-center">Copyright &copy; 2023 MEDPAY  All rights reserved.</p>
+                  <p class="text-white font-weight-medium text-center">Copyright &copy;  @{{ currentYear }} HIRETOP  All rights reserved.</p>
                 </div>
               </div>
             </div>
@@ -38,6 +38,16 @@
 
 <script>
 export default {
-  name: 'error404'
+  name: 'error404',
+  data() {
+    return {
+      currentYear: null
+    };
+
+  },
+  mounted() {
+    const date = new Date();
+    this.currentYear = date.getFullYear();
+  }
 }
 </script>

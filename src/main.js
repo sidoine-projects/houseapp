@@ -20,7 +20,7 @@ import VueFroala from 'vue-froala-wysiwyg';
 import 'froala-editor/js/languages/fr.js';
 import './lang/fr.js';
 
-
+Vue.use(VueFroala);
 Vue.use(BootstrapVue);
 Vue.use(VueSweetalert2);
 Vue.use(Toast);

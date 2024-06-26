@@ -1,4 +1,15 @@
-module.exports = { 
-  // publicPath: process.env.NODE_ENV === 'production' ? '/demo/purple-free-vue/preview/demo_1/' : '/' 
-  publicPath: '/'
-}
+module.exports = {
+  publicPath: "/",
+  chainWebpack: (config) => {
+    config.module
+      .rule("babel")
+      .test(/\.m?js$/)
+      .exclude.add(/node_modules/)
+      .end()
+      .use("babel-loader")
+      .loader("babel-loader")
+      .options({
+        presets: ["@babel/preset-env"],
+      });
+  },
+};

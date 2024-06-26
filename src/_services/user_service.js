@@ -31,6 +31,10 @@ const logout = (user) => {
   return Axios.post("auth/logout", user);
 };
 
+const getSituationsFamiliales = () => {
+  return Axios.get("/getSituationsFamiliales");
+};
+
 
 const updateUser = (user) => {
   return Axios.put("/users/" + user.id, user);
@@ -94,6 +98,7 @@ export const LoginService = {
   resendVerificationCode,
   login,
   logout,
+  getSituationsFamiliales,
   
   
   

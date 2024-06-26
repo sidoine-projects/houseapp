@@ -9,8 +9,8 @@
             <div class="col-xl-4 col-lg-6 mx-auto col-md-6">
               <div
                 class="auth-form-light text-left p-5 rounded-lg shadow"
-                style="margin-top: -120px">
-              
+                style="margin-top: -120px"
+              >
                 <div class="brand-logo text-center">
                   <img
                     src="@/assets/images/logohire.png"
@@ -20,7 +20,7 @@
                 <h6 class="text-center font-weight-bold text-info">
                   Aidez nous à protéger votre compte.
                 </h6>
-                <hr class="w-100" />
+                <hr class="w-100 row" />
 
                 <h6 class="text-center font-weight-bold text-dark">
                   Pour des raisons de sécurité, vous devriez vérifier votre
@@ -114,7 +114,7 @@ export default {
         email: localStorage.getItem("email"),
         verification_code: "",
       },
-  
+
       formErrors: {},
     };
   },
@@ -152,16 +152,22 @@ export default {
             }
 
             if (error.response.data.message && this.formErrors.length == 0) {
-              this.$toast.error(error.response.data.message, {
-                position: "top-right",
-                timeout: 3000,
-                style: {
-                  background: "#ff0000", // Couleur de fond rouge pour l'erreur
-                  color: "#fff", // Couleur du texte
-                  fontWeight: "bold",
-                  // Autres styles si nécessaire
-                },
-              });
+              if (error.response.data.message == "Utilisateur non trouvé.") {
+                // Redirection vers la page de connexion
+                this.$router.push("/login");
+              } 
+                // Affichage du toast d'erreur pour les autres messages
+                this.$toast.error(error.response.data.message, {
+                  position: "top-right",
+                  timeout: 3000,
+                  style: {
+                    background: "#ff0000", // Couleur de fond rouge pour l'erreur
+                    color: "#fff", // Couleur du texte
+                    fontWeight: "bold",
+                    // Autres styles si nécessaire
+                  },
+                });
+              
             }
           } else {
             // Sinon, afficher un message d'erreur générique
@@ -185,9 +191,9 @@ export default {
     resendVerificationCode() {
       this.user.verification_code = "";
       LoginService.resendVerificationCode(this.user)
-        .then((res) => {
+        .then((response) => {
           // Traitement en cas de succès de la requête
-          localStorage.setItem('role', response.data.role); 
+          localStorage.setItem("role", response.data.role);
           this.$toast.info("Entrer le nouveau code reçu par mail !", {
             position: POSITION.TOP_RIGHT,
             timeout: 3000,
@@ -204,17 +210,17 @@ export default {
           // Traitement en cas d'erreur de la requête
           console.error(error); // Afficher l'erreur dans la console
           if (error.response.data.message) {
-              this.$toast.error(error.response.data.message, {
-                position: "top-right",
-                timeout: 3000,
-                style: {
-                  background: "#ff0000", // Couleur de fond rouge pour l'erreur
-                  color: "#fff", // Couleur du texte
-                  fontWeight: "bold",
-                  // Autres styles si nécessaire
-                },
-              });
-            }
+            this.$toast.error(error.response.data.message, {
+              position: "top-right",
+              timeout: 3000,
+              style: {
+                background: "#ff0000", // Couleur de fond rouge pour l'erreur
+                color: "#fff", // Couleur du texte
+                fontWeight: "bold",
+                // Autres styles si nécessaire
+              },
+            });
+          }
         });
     },
 
@@ -224,9 +230,7 @@ export default {
       }
     },
   },
-  mounted() {
-
-  },
+  mounted() {},
 };
 </script>
 

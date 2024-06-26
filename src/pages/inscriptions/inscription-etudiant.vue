@@ -11,51 +11,10 @@
                 <h4 class="text-center font-weight-bold text-info">
                   CRÉATION DE COMPTE
                 </h4>
+
                 <form class="forms-sample card-body" @submit.prevent="store">
                   <div class="row">
-                    <div class="form-group controls col-md-6 col-lg-6">
-                      <label for="exampleFormControlSelect1"
-                        >Nom<span class="font-weight-bold" style="color: red">
-                          *</span
-                        ></label
-                      >
-                      <input
-                        type="text"
-                        :class="{ 'is-invalid': formErrors.nom }"
-                        class="form-control form-control-lg"
-                        v-model="user.nom"
-                        id="nom"
-                        placeholder="Nom"
-                      />
-                      <div class="invalid-feedback" v-if="formErrors.nom">
-                        {{ formErrors.nom[0] }}
-                      </div>
-                    </div>
-                    <div class="form-group controls col-md-6 col-lg-6">
-                      <label for="exampleFormControlSelect1"
-                        >Prénom<span
-                          class="font-weight-bold"
-                          style="color: red"
-                        >
-                          *</span
-                        ></label
-                      >
-                      <input
-                        :class="{ 'is-invalid': formErrors.prenom }"
-                        @input="clearError('prenom')"
-                        type="text"
-                        class="form-control form-control-lg"
-                        v-model="user.prenom"
-                        id="prenom"
-                        placeholder="Prénom"
-                      />
-                      <div class="invalid-feedback" v-if="formErrors.prenom">
-                        {{ formErrors.prenom[0] }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group controls col-md-6 col-lg-6">
+                    <div class="form-group controls col-md-4 col-lg-4">
                       <label for="exampleFormControlSelect1"
                         >Civilité<span
                           class="font-weight-bold"
@@ -79,34 +38,49 @@
                         {{ formErrors.civilite[0] }}
                       </div>
                     </div>
-                    <div class="form-group controls col-md-6 col-lg-6">
+                    <div class="form-group controls col-md-4 col-lg-4">
                       <label for="exampleFormControlSelect1"
-                        >Situation familiale
-                        <span class="font-weight-bold" style="color: red">
+                        >Nom<span class="font-weight-bold" style="color: red">
                           *</span
                         ></label
                       >
                       <input
                         type="text"
-                        :class="{
-                          'is-invalid': formErrors.situation_familiale,
-                        }"
-                        @input="clearError('situation_familiale')"
+                        :class="{ 'is-invalid': formErrors.nom }"
                         class="form-control form-control-lg"
-                        v-model="user.situation_familiale"
-                        id="situation_familiale"
-                        placeholder="situation matrimoniale"
+                        v-model="user.nom"
+                        id="nom"
+                        placeholder="Nom"
                       />
-                      <div
-                        class="invalid-feedback"
-                        v-if="formErrors.situation_familiale"
+                      <div class="invalid-feedback" v-if="formErrors.nom">
+                        {{ formErrors.nom[0] }}
+                      </div>
+                    </div>
+                    <div class="form-group controls col-md-4 col-lg-4">
+                      <label for="exampleFormControlSelect1"
+                        >Prénom<span
+                          class="font-weight-bold"
+                          style="color: red"
+                        >
+                          *</span
+                        ></label
                       >
-                        {{ formErrors.situation_familiale[0] }}
+                      <input
+                        :class="{ 'is-invalid': formErrors.prenom }"
+                        @input="clearError('prenom')"
+                        type="text"
+                        class="form-control form-control-lg"
+                        v-model="user.prenom"
+                        id="prenom"
+                        placeholder="Prénom"
+                      />
+                      <div class="invalid-feedback" v-if="formErrors.prenom">
+                        {{ formErrors.prenom[0] }}
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group controls col-md-6 col-lg-6">
+                    <div class="form-group controls col-md-4 col-lg-4">
                       <label for="exampleFormControlSelect1"
                         >Téléphone<span
                           class="font-weight-bold"
@@ -115,28 +89,68 @@
                           *</span
                         ></label
                       >
-                      <!-- <VuePhoneNumberInput
-                        v-model="user.telephone"
-                        :translations="translations"
-                        :error="shouldChooseCountry"
-                        :valid="isValid && !noValidatorState"
-                        valid-color="#ababad"
-                        style="border-radius: 0%"
-                        :class="{ 'is-invalid': formErrors.telephone }"
-                        @update="onUpdate"
-                      /> -->
-         
-                      <!-- <vue-tel-input v-model="user.telephone" mode="international"></vue-tel-input> -->
-                      <div class="invalid-feedback" v-if="formErrors.telephone">
-                        {{ formErrors.telephone[0] }}
+
+                      <div class="iti-wrapper">
+                        <input
+                          :class="{ 'is-invalid': formErrors.telephone }"
+                          type="tel"
+                          id="phone"
+                          ref="phoneInput"
+                          class="form-control form-control-lg iti-input"
+                          v-model="user.telephone"
+                          @input="onPhoneInputChange"
+                          placeholder="Téléphone"
+                        />
+                        <div
+                          class=""
+                          style="font-size: 14px; color: rgb(232, 74, 69)"
+                          v-if="formErrors.telephone"
+                        >
+                          {{ formErrors.telephone[0] }}
+                        </div>
                       </div>
                     </div>
-                    <div class="form-group controls col-md-6 col-lg-6">
+                    <div class="form-group controls col-md-4 col-lg-4">
+                      <label for="exampleFormControlSelect1"
+                        >Situation familiale
+                        <span class="font-weight-bold" style="color: red">
+                          *</span
+                        ></label
+                      >
+                      <select
+                        :class="{
+                          'is-invalid': formErrors.situation_familiale_id,
+                        }"
+                        @change="clearError('situation_familiale_id')"
+                        v-model="user.situation_familiale_id"
+                        class="form-control text-dark form-control-lg"
+                        id="situation_familiale_id"
+                      >
+                        <option value="" disabled>
+                          situation matrimoniale
+                        </option>
+                        <option
+                          v-for="situation in situationsFamiliales"
+                          :key="situation.id"
+                          :value="situation.id"
+                        >
+                          {{ situation.name }}
+                        </option>
+                      </select>
+                      <div
+                        class="invalid-feedback"
+                        v-if="formErrors.situation_familiale_id"
+                      >
+                        {{ formErrors.situation_familiale_id[0] }}
+                      </div>
+                    </div>
+                    <div class="form-group controls col-md-4 col-lg-4">
                       <label for="exampleFormControlSelect1"
                         >Email<span class="font-weight-bold" style="color: red">
                           *</span
                         ></label
                       >
+
                       <input
                         type="email"
                         class="form-control form-control-lg"
@@ -144,7 +158,6 @@
                         id="email"
                         placeholder="email"
                         :class="{ 'is-invalid': formErrors.email }"
-                        :default-country="'BJ'"
                         @input="clearError('email')"
                       />
                       <div class="invalid-feedback" v-if="formErrors.email">
@@ -152,6 +165,7 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row"></div>
                   <div class="row">
                     <div class="form-group controls col-md-6 col-lg-6">
                       <label for="exampleFormControlSelect1"
@@ -280,9 +294,7 @@
                     <button type="submit" class="btn btn-info mx-auto">
                       CREER VOTRE COMPTE
                     </button>
-                    <!-- <button @click="cancel" class="btn btn-danger">Annuler</button> -->
                   </div>
-
                   <div class="text-center mt-4 font-weight-light">
                     Aviez vous déjà un compte?
                     <router-link to="/auth-pages/login" class="text-info">
@@ -312,9 +324,11 @@ import Footer from "../../layout/partials/Footer";
 import { useToast, POSITION } from "vue-toastification";
 import { LoginService } from "@/_services";
 
+import "intl-tel-input/build/css/intlTelInput.min.css";
+import fr from "intl-tel-input/build/js/i18n/fr";
+
 // import VueTelInput from 'vue-tel-input';
 // import 'vue-tel-input/vue-tel-input.css';
-
 
 export default {
   name: "register-student",
@@ -332,14 +346,15 @@ export default {
         civilite: "",
         adresse: "",
         linkedin: "",
-        country_code: "", // Ajout du champ pour le code du pays
+        country_code: "229", // Ajout du champ pour le code du pays
         email: "",
-        situation_familiale: "",
+        situation_familiale_id: "",
         linkdin: "",
         password: "",
         password_confirmation: "",
       },
 
+      situationsFamiliales: [],
       formErrors: {},
     };
   },
@@ -357,26 +372,17 @@ export default {
         icon.classList.add("fa-eye-slash");
       }
     },
-    
 
     clearError(field) {
       this.formErrors[field] = false;
     },
 
     store() {
-      // const userData = {
-      //   nom: this.user.nom,
-      //   prenom: this.user.prenom,
-      //   civilite: this.user.civilite,
-      //   email: this.user.email,
-      //   situation_familiale: this.user.situation_familiale,
-      //   adresse: this.user.adresse,
-      //   telephone: this.user.telephone,
-      //   country_code: this.user.country_code,
-      //   linkedin: this.user.linkedin,
-      //   password: this.user.password,
-      // };
-
+      const isValidPhoneNumber = this.iti.isValidNumberPrecise();
+      if (!isValidPhoneNumber && this.user.telephone !== "") {
+        this.formErrors.telephone = ["N° Téléphone invalide."];
+        return; // Arrête l'exécution de la fonction
+      }
       LoginService.addUserTalent(this.user)
         .then((res) => {
           // Traitement en cas de succès de la requête
@@ -420,19 +426,105 @@ export default {
         });
     },
 
+    getSituationsFamiliales() {
+      LoginService.getSituationsFamiliales()
+        .then((response) => {
+          this.situationsFamiliales = response.data;
+          // console.log(this.situationsFamiliales);
+        })
+        .catch((error) => {
+          console.error("Error fetching situations familiales:", error);
+        });
+    },
+
+    updateValue() {
+      this.user.telephone = this.iti.getNumber();
+      const selectedCountryData = this.iti.getSelectedCountryData();
+      this.user.country_code = selectedCountryData.dialCode;
+      console.log(this.user.country_code);
+      console.log(this.user.telephone);
+    },
+    onPhoneInputChange() {
+      console.log(this.user.country_code);
+      console.log(this.user.telephone);
+
+      const isValidPhoneNumber = this.iti.isValidNumberPrecise();
+
+      // console.log("Is valid phone number:", isValidPhoneNumber);
+
+      if (!isValidPhoneNumber) {
+        this.formErrors.telephone = ["N° Téléphone invalide."];
+        console.log("Ne numéro de téléphone:", this.formErrors.telephone);
+      } else {
+        this.formErrors.telephone = "";
+        this.clearError("telephone");
+      }
+    },
+
     clearError(field) {
       if (field in this.formErrors) {
         this.formErrors[field] = "";
         // delete this.formErrors[field];
       }
     },
+    beforeDestroy() {
+      if (this.iti) {
+        this.iti.destroy();
+      }
+    },
+  },
+
+  mounted() {
+    this.getSituationsFamiliales();
+
+    const input = this.$refs.phoneInput;
+    this.iti = intlTelInput(input, {
+      // utilsScript: "../../assets/js/utils.js",
+      utilsScript:
+        "https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.7/build/js/utils.js",
+      i18n: fr,
+      separateDialCode: true,
+      initialCountry: "bj",
+    });
+
+    input.addEventListener("countrychange", () => {
+      this.updateValue();
+    });
   },
 };
 </script>
 
 <style scoped>
 /* @import "../../../node_modules/@diogoccoutinho/vue-international-phone/dist/VueInputPhone.css"; */
+.iti-input {
+  width: 100% !important;
+  margin-top: 0px !important; /* Ajoutez la marge supérieure ici */
+}
+.iti-flag {
+  background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/10.0.2/img/flags.png");
+}
+body .intl-tel-input .flag-container {
+  position: static;
+}
 
+body .intl-tel-input .selected-flag {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+}
+
+body .intl-tel-input .country-list {
+  width: 100%;
+  top: 100%;
+}
+
+.iti {
+  --iti-path-flags-1x: url("../../assets/images/intl-tel-input/flags.png");
+  --iti-path-flags-2x: url("../../assets/images/intl-tel-input/flags@2x.png");
+  --iti-path-globe-1x: url("../../assets/images/intl-tel-input/globe.png");
+  --iti-path-globe-2x: url("../../assets/images/intl-tel-input/globe@2x.png");
+}
 .btn-custom {
   color: #6c757d; /* Couleur du texte par défaut */
   border-color: #ababad; /* Couleur de la bordure par défaut */

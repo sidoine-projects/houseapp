@@ -3,7 +3,7 @@
     <div class="row">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div
-          class="content-wrapper d-flex align-items-center auth container-fluid page-body-wrapper "
+          class="content-wrapper d-flex align-items-center auth container-fluid page-body-wrapper"
         >
           <div class="row w-100 flex-grow">
             <div class="col-xl-4 col-lg-6 mx-auto col-md-6">
@@ -100,7 +100,7 @@
                   </div>
                   <div class="text-center mt-4 font-weight-light">
                     <router-link to="/auth-pages/login" class="text-info">
-                       mot de passe oublié ?
+                      mot de passe oublié ?
                     </router-link>
                   </div>
                 </form>
@@ -157,12 +157,26 @@ export default {
     store() {
       LoginService.login(this.user)
         .then((res) => {
-          // console.log(res.data.token);
+          // console.log(res);
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("user", JSON.stringify(res.data.user));
-        localStorage.setItem("permissions", JSON.stringify(res.data.user.permissions));
-          console.log( localStorage.getItem("user"))
-          this.$router.push("/dashboard/talent");
+          const roleNames = res.data.user.roles.map((role) => role.name);
+          localStorage.setItem("roles", JSON.stringify(roleNames));
+          localStorage.setItem(
+            "permissions",
+            JSON.stringify(res.data.user.permissions)
+          );
+          // console.log(localStorage.getItem("roles"));
+          // Rediriger l'utilisateur en fonction de son rôle
+          if (roleNames.includes("roletalent")) {
+            this.$router.push("/dashboard/talent");
+          } else if (roleNames.includes("roleentreprise")) {
+            this.$router.push("/dashboard/society");
+          } else {
+            
+            this.$router.push("/register"); // Remplacez "/default" par le chemin de la page souhaitée
+          }
+          // this.$router.push("/dashboard/talent");
           // Traitement en cas de succès de la requête
           this.$toast.success("Utilisateur connecté avec succès !", {
             position: POSITION.TOP_RIGHT,
@@ -174,7 +188,7 @@ export default {
               fontWeight: "bold",
             },
           });
-         
+
           // Réinitialiser le formulaire ou rediriger vers une autre page, etc.
         })
         .catch((error) => {
@@ -189,6 +203,9 @@ export default {
             }
 
             if (error.response.data.message && this.formErrors.length == 0) {
+              if (error.response.status == 403) {
+                this.$router.push("/register/verifycode"); // Rediriger vers la route de vérification de code
+              }
               this.$toast.error(error.response.data.message, {
                 position: "top-right",
                 timeout: 3000,
@@ -250,8 +267,6 @@ export default {
   background-color: transparent; /* Fond transparent au survol ou au focus */
   border-color: #ababad; /* Couleur de la bordure au survol ou au focus */
 }
-
-
 
 select {
   cursor: pointer;
