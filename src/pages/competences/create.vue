@@ -99,10 +99,10 @@
 </template>
 
 <script>
-import { patientService } from "@/_services";
-import { paysService } from "@/_services";
-import { departementService } from "@/_services";
-import { communeService } from "@/_services";
+// import { patientService } from "@/_services";
+// import { paysService } from "@/_services";
+// import { departementService } from "@/_services";
+// import { communeService } from "@/_services";
 import { arrondissementService } from "@/_services";
 import { quartierService } from "@/_services";
 import { useToast, POSITION } from "vue-toastification";

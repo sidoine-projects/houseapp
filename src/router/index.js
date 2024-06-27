@@ -454,42 +454,42 @@ const router = new Router({
     //   props: true,
     // },
 
-    {
-      path: "/eph",
-      component: layout,
-      children: [
-        {
-          path: "create",
-          name: "eph-create",
-          component: () => import("@/pages/centre-sante/create"),
-        },
-      ],
-    },
+    // {
+    //   path: "/eph",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "eph-create",
+    //       component: () => import("@/pages/centre-sante/create"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/eph",
-      component: layout,
-      children: [
-        {
-          path: "list",
-          name: "eph-list",
-          component: () => import("@/pages/centre-sante/index"),
-        },
-      ],
-    },
+    // {
+    //   path: "/eph",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "eph-list",
+    //       component: () => import("@/pages/centre-sante/index"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/eph",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "eph-update",
-          component: () => import("@/pages/centre-sante/update"),
-          props: true,
-        },
-      ],
-    },
+    // {
+    //   path: "/eph",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "eph-update",
+    //       component: () => import("@/pages/centre-sante/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
 
     // {
     //   path: "/affectterminal",
@@ -625,42 +625,42 @@ const router = new Router({
     //     },
     //   ],
     // },
-    {
-      path: "/ephe",
-      component: layout,
-      children: [
-        {
-          path: "create",
-          name: "ephe-create",
-          component: () => import("@/pages/typecentre/create"),
-        },
-      ],
-    },
+    // {
+    //   path: "/ephe",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "create",
+    //       name: "ephe-create",
+    //       component: () => import("@/pages/typecentre/create"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/ephe",
-      component: layout,
-      children: [
-        {
-          path: "list",
-          name: "ephe-list",
-          component: () => import("@/pages/typecentre/index"),
-        },
-      ],
-    },
+    // {
+    //   path: "/ephe",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "list",
+    //       name: "ephe-list",
+    //       component: () => import("@/pages/typecentre/index"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/ephe",
-      component: layout,
-      children: [
-        {
-          path: "update/:id(\\d+)",
-          name: "ephe-update",
-          component: () => import("@/pages/typecentre/update"),
-          props: true,
-        },
-      ],
-    },
+    // {
+    //   path: "/ephe",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "update/:id(\\d+)",
+    //       name: "ephe-update",
+    //       component: () => import("@/pages/typecentre/update"),
+    //       props: true,
+    //     },
+    //   ],
+    // },
     // {
     //   path: "/actes-medicaux",
     //   component: layout,
@@ -941,63 +941,63 @@ const router = new Router({
     //   ],
     // },
 
-    {
-      path: "/rapport",
-      component: layout,
-      children: [
-        {
-          path: "/rapport",
-          name: "rapport",
-          component: () => import("@/pages/rapport/index"),
-        },
-      ],
-    },
+    // {
+    //   path: "/rapport",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "/rapport",
+    //       name: "rapport",
+    //       component: () => import("@/pages/rapport/index"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/rapport",
-      component: layout,
-      children: [
-        {
-          path: "/rapport/caissier",
-          name: "rapport-caissier",
-          component: () => import("@/pages/rapport/caissier"),
-        },
-      ],
-    },
-    {
-      path: "/rapport",
-      component: layout,
-      children: [
-        {
-          path: "/rapport-general/hospital",
-          name: "rapports-hospital",
-          component: () => import("@/pages/rapport-general/hospital"),
-        },
-      ],
-    },
-    {
-      path: "/rapport",
-      component: layout,
-      children: [
-        {
-          path: "/rapport-general/geospatial",
-          name: "rapports-geospatial",
-          component: () => import("@/pages/rapport-general/geospatial"),
-        },
-      ],
-    },
+    // {
+    //   path: "/rapport",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "/rapport/caissier",
+    //       name: "rapport-caissier",
+    //       component: () => import("@/pages/rapport/caissier"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/rapport",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "/rapport-general/hospital",
+    //       name: "rapports-hospital",
+    //       component: () => import("@/pages/rapport-general/hospital"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: "/rapport",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "/rapport-general/geospatial",
+    //       name: "rapports-geospatial",
+    //       component: () => import("@/pages/rapport-general/geospatial"),
+    //     },
+    //   ],
+    // },
 
-    {
-      path: "/rapport",
-      component: layout,
-      children: [
-        {
-          path: "/rapport/terminal",
-          name: "rapport-terminal",
-          component: () => import("@/pages/rapport/terminal"),
-        },
-      ],
-    },
+    // {
+    //   path: "/rapport",
+    //   component: layout,
+    //   children: [
+    //     {
+    //       path: "/rapport/terminal",
+    //       name: "rapport-terminal",
+    //       component: () => import("@/pages/rapport/terminal"),
+    //     },
+    //   ],
+    // },
 
     // {
     //   path: "/compagnie",

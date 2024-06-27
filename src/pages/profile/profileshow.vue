@@ -140,8 +140,8 @@
 </template>
 <script>
 import { roleService } from "@/_services";
-import { centreService } from "@/_services";
-import { terminalService } from "@/_services";
+// import { centreService } from "@/_services";
+// import { terminalService } from "@/_services";
 export default {
   name: "app-profil",
   data() {
